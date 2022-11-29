@@ -1,0 +1,32 @@
+
+
+
+<div data-controller="form-option">
+  <h1>Ajouter une room</h1>
+
+  <button data-action="click->form-option#displayForm"> click ici </button>
+
+  <div data-form-option-target="noend">
+   <%= simple_form_for ([@room]) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :location %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :start_date %>
+    <%= f.submit "Enregistrer"%>
+  <% end %>
+  </div>
+
+  <div data-form-option-target="end">
+  <%= simple_form_for ([@room]) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :location %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit "Enregistrer"%>
+  <% end %>
+  </div>
+
+</div>
