@@ -172,6 +172,7 @@ GEM
       activesupport (= 7.0.4)
       bundler (>= 1.15.0)
       railties (= 7.0.4)
+    rails-bootstrap-toggle-buttons (0.0.7)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -260,6 +261,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  rails-bootstrap-toggle-buttons
   sassc-rails
   selenium-webdriver
   simple_form!
