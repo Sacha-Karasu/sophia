@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import FormOptionController from "./form_option_controller"
+application.register("form-option", FormOptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
