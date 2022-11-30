@@ -1,0 +1,24 @@
+<div class="container" data-controller="room-subscription"
+data-room-subscription-room-id-value="<%= @room.id %>">
+  <h1> <%= @room.name %></h1>
+
+  <%= link_to "Détruire la room", room_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <div class="messages" data-room-subscription-target="messages">
+    <% @room.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@room, @message],
+    html: { data: { action: "turbo:submit-end->room-subscription#resetForm" },
+    class: "d-flex" } do |f|%>
+    <%= f.input :content,
+                label: false,
+                placeholder: "Message ##{@room.name}",
+                wrapper_html: {class: "flex-grow-1"}%>
+    <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
+  <% end %>
+
+
+</div>
