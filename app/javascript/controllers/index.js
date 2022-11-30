@@ -9,3 +9,9 @@ application.register("form-option", FormOptionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import RoomAutodestructionController from "./room_autodestruction_controller"
+application.register("room-autodestruction", RoomAutodestructionController)
+
+import RoomSubscriptionController from "./room_subscription_controller"
+application.register("room-subscription", RoomSubscriptionController)
