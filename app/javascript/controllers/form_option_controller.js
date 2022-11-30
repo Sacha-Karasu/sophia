@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   displayForm() {
+    console.log("coucou")
     this.noendTarget.classList.toggle("d-none")
     this.endTarget.classList.toggle("d-none")
   }
