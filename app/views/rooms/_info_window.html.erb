@@ -1,2 +1,6 @@
-<h2><%= room.name %></h2>
-<p><%= room.location %></p>
+<div>
+  <h2><%= room.name %></h2>
+  <div><%= link_to "Entrer dans la room", room_path(room), class: "btn-blue"%></div>
+  <p><%= room.description %></p>
+  <p><%= room.location %></p>
+</div>
