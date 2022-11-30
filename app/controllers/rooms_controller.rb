@@ -20,6 +20,14 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all
+    # The `geocoded` scope filters only rooms with coordinates
+    @markers = @rooms.geocoded.map do |room|
+      {
+        lat: room.latitude,
+        lng: room.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {room: room})
+      }
+    end
   end
 
   def destroy
