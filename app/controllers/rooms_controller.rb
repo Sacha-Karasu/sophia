@@ -19,6 +19,13 @@ class RoomsController < ApplicationController
   end
 
   def index
+<<<<<<< HEAD
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR category ILIKE :query"
+      @rooms = Room.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @rooms = Room.all
+=======
     @rooms = Room.all
     # The `geocoded` scope filters only rooms with coordinates
     @markers = @rooms.geocoded.map do |room|
@@ -27,6 +34,7 @@ class RoomsController < ApplicationController
         lng: room.longitude,
         info_window: render_to_string(partial: "info_window", locals: {room: room})
       }
+>>>>>>> master
     end
   end
 
