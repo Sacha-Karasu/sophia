@@ -1,7 +1,4 @@
 class RoomsController < ApplicationController
-  def new
-    @room = Room.new
-  end
 
   def create
     @room = Room.new(room_params)
@@ -25,6 +22,7 @@ class RoomsController < ApplicationController
     else
       @rooms = Room.all
     end
+    @room = Room.new
     # The `geocoded` scope filters only rooms with coordinates
     @markers = @rooms.geocoded.map do |room|
       {
