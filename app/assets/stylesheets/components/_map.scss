@@ -4,4 +4,7 @@
 
 .mapboxgl-popup-content {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
