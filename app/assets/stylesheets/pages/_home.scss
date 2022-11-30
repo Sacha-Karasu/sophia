@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+.card {
+  margin: 0 auto;
+
+  .header {
+      height: 200px;
+
+      .avatar {
+          width: 160px;
+          height: 160px;
+          position: relative;
+          margin: 0 auto;
+
+          img {
+              display: block;
+              border-radius: 50%;
+              position: absolute;
+              bottom: calc(-1*(80px + 4px));
+              border: 8px solid #9Dc912;
+              background-color: #fff;
+          }
+      }
+  }
+}
