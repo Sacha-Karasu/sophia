@@ -3,6 +3,7 @@ data-room-subscription-room-id-value="<%= @room.id %>">
   <h1> <%= @room.name %></h1>
 
   <%= link_to "Détruire la room", room_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to "Retour à la home", rooms_path %>
 
   <div class="messages" data-room-subscription-target="messages">
     <% @room.messages.each do |message| %>

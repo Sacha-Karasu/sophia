@@ -1,0 +1,21 @@
+<%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a room"
+  %>
+  <%= submit_tag "Recherche", class: "btn btn-primary" %>
+<% end %>
+
+<div >
+  <% @rooms.each do |room|%>
+    <div class="card"> <%= room.name %>
+    <%= room.category %>
+    <%= room.location %>
+    <%= room.start_date %>
+    <%= room.end_date %>
+    <p>
+    <%= link_to "Show this list", room %></div>
+    </p>
+    <% end %>
+</div>

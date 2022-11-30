@@ -19,7 +19,12 @@ class RoomsController < ApplicationController
   end
 
   def index
-    @rooms = Room.all
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR category ILIKE :query"
+      @rooms = Room.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @rooms = Room.all
+    end
   end
 
   def destroy
