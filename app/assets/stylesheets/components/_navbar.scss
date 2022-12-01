@@ -1,25 +1,16 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-around;
   color: white;
   background-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-top: 5px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.navbar-home {
-  position: absolute;
-  width: 100%;
-  background: transparent;
-  box-shadow: none;
-  .navbar-wagon-link {
-    color: white;
-    font-weight: bold;
-  }
+.container-fluid {
+  margin: 5px;
 }
