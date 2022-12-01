@@ -9,22 +9,27 @@
 <% end %>
 
 <div data-controller="form-option">
-  <button data-action="click->form-option#revealContent"> list </button>
-  <div data-form-option-target="liste">
+  <button data-action="click->form-option#revealList"> list </button>
+  <button data-action="click->form-option#revealMap"> map </button>
+  <button data-action="click->form-option#revealNew"> new </button>
+
+  <div data-form-option-target="list">
     <% @rooms.each do |room|%>
-      <div class="card"> <%= room.name %>
-      <%= room.category %>
-      <%= room.location %>
-      <%= room.start_date %>
-      <%= room.end_date %>
-      <p>
-      <%= link_to "Show this list", room %></div>
-      </p>
+      <div>
+        <%= room.name %>
+        <%= room.category %>
+        <%= room.location %>
+        <%= room.start_date %>
+        <%= room.end_date %>
+        <p>
+          <%= link_to "Show this list", room %>
+        </p>
+      </div>
       <% end %>
   </div>
 
-  <button data-action="click->form-option#revealContent"> map </button>
-  <div class="d-none" id="carte1" data-form-option-target="carte">
+
+  <div class="d-none" data-form-option-target="map">
     <div style="width: 100%; height: 600px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
@@ -32,8 +37,8 @@
     </div>
   </div>
 
-  <button data-action="click->form-option#revealContent"> new </button>
-  <div class="d-none" data-form-option-target="nouveau">
+
+  <div class="d-none" data-form-option-target="new">
 
       <h1>Ajouter une room</h1>
 

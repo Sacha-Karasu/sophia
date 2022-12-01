@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 // Your CSS partials
 @import "components/index";
@@ -16,3 +17,49 @@
 //   height: 100vh;
 //   overflow: scroll;
 // }
+
+body {
+  color: white;
+  background-color: black;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.style-message{
+  font-family: 'Times New Roman', Times, serif;
+  padding: 3px 10px;
+  margin: 4px auto;
+  border-radius: 10px;
+  width: fit-content;
+  display: inline-block;
+  text-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  margin-top: -1px;
+  margin-bottom: 20px;
+  background: linear-gradient(to left top, #2582dd, #dbd4b4, #b0579d);
+}
+
+.style-infos-message {
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: small;
+}
+
+#style-date
+{
+  color: rgb(162, 162, 162);
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: smaller;
+}
+
+h1 {
+
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: .2rem;
+
+}
