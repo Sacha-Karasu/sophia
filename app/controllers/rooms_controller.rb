@@ -12,6 +12,11 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @messages = @room.messages
+    if params[:query].present?
+      sql_query = "content ILIKE :query"
+      @messages = @messages.where(sql_query, query: "%#{params[:query]}%")
+    end
     @message = Message.new
   end
 
