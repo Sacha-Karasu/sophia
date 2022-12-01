@@ -8,7 +8,6 @@ data-room-subscription-room-id-value="<%= @room.id %>">
   </h1>
 
 
-    </div>
     <%= form_with url: room_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
