@@ -55,6 +55,13 @@ class RoomsController < ApplicationController
     @room.destroy if now >= final
   end
 
+  def nomade
+    @room = Room.find(params[:id])
+    @room.update(latitude: crd.latitude)
+    @room.update(longitude: crd.longitude)
+    redirect_to room_path(@rooms)
+  end
+
   private
 
   def room_params

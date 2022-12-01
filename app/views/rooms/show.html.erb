@@ -1,10 +1,20 @@
-<div class="container" data-controller="room-subscription"
-data-room-subscription-room-id-value="<%= @room.id %>">
-  <h1> <%= @room.name %></h1>
+<div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>">
+  <h1> <%= @room.name %> <%= @room.latitude %> <%= @room.longitude %></h1>
 
   <h1>
     <%= link_to "Détruire la room", room_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <%= link_to "Retour à la home", rooms_path %>
+
+    <div data-controller="location-nomade">
+      <% if current_user == @room.user && @room.motion %>
+        <i data-action="click->location-nomade#actualiseLocation" class="fa-solid fa-location-crosshairs"></i>
+      <% else %>
+        <%= link_to room_path(@room) do %>
+          <i class="fa-solid fa-arrows-rotate"></i>
+        <% end %>
+      <% end %>
+    </div>
+
   </h1>
 
 
@@ -34,3 +44,4 @@ data-room-subscription-room-id-value="<%= @room.id %>">
                 wrapper_html: {class: "flex-grow-1"}%>
     <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
   <% end %>
+</div>
