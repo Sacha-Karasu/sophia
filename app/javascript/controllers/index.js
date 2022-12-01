@@ -18,3 +18,9 @@ application.register("room-autodestruction", RoomAutodestructionController)
 
 import RoomSubscriptionController from "./room_subscription_controller"
 application.register("room-subscription", RoomSubscriptionController)
+
+// import ScrollCustomController from "./scroll_custom"
+// application.register("scroll-to", ScrollCustomController)
+
+// import ScrollTo from 'stimulus-scroll-to'
+// application.register('scroll-to', ScrollTo)

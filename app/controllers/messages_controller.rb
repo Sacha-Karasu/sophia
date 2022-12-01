@@ -19,7 +19,14 @@ class MessagesController < ApplicationController
     else
       render "rooms/show", status: :unprocessable_entity
     end
+
   end
+
+  # RoomChannel.broadcast_to(
+  #   @room,
+  #   message: render_to_string(partial: "message", locals: { message: @message }),
+  #   sender_id: @message.user.id
+  # )
 
   private
 
