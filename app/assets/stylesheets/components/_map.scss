@@ -2,9 +2,22 @@
   max-width: 200px;
 }
 
-.mapboxgl-popup-content {
+#mapboxgl-popup-content {
+  background: linear-gradient(to left top, #1A2980, #26D0CE);
+  opacity: 0.8;
+  border-radius: 2px;
+  padding: 16px;
+  color: white;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+}
+
+#mapboxgl-popup-content p {
+  color: white;
+  text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 }
