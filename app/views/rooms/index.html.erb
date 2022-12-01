@@ -8,20 +8,71 @@
   <%= submit_tag "Recherche", class: "btn btn-primary" %>
 <% end %>
 
-<div >
-  <% @rooms.each do |room|%>
-    <div class="card"> <%= room.name %>
-    <%= room.category %>
-    <%= room.location %>
-    <%= room.start_date %>
-    <%= room.end_date %>
-    <p>
-    <%= link_to "Show this list", room %></div>
-    </p>
-    <% end %>
-</div>
+<div data-controller="form-option">
+  <button data-action="click->form-option#revealList"> list </button>
+  <button data-action="click->form-option#revealMap"> map </button>
+  <button data-action="click->form-option#revealNew"> new </button>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div data-form-option-target="list">
+    <% @rooms.each do |room|%>
+      <div>
+        <%= room.name %>
+        <%= room.category %>
+        <%= room.location %>
+        <%= room.start_date %>
+        <%= room.end_date %>
+        <p>
+          <%= link_to "Show this list", room %>
+        </p>
+      </div>
+      <% end %>
+  </div>
+
+
+  <div class="d-none" data-form-option-target="map">
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+
+  <div class="d-none" data-form-option-target="new">
+
+      <h1>Ajouter une room</h1>
+
+      <label class="switch">
+        <input data-action="change->form-option#displayForm" type="checkbox">
+        <span></span>
+      </label>
+
+      <div data-form-option-target="noend">
+        <h2>Créer une room permanente</h2>
+          <%= simple_form_for ([@room]) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :category %>
+            <%= f.input :location %>
+            <%= f.input :description, as: :text %>
+            <%= f.input :start_date %>
+            <%= f.submit "Enregistrer"%>
+          <% end %>
+      </div>
+
+      <div data-form-option-target="end" class="d-none">
+        <h2>Créer une room éphémère</h2>
+          <%= simple_form_for ([@room]) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :category %>
+            <%= f.input :location %>
+            <%= f.input :description, as: :text %>
+            <%= f.input :start_date %>
+            <%= f.input :end_date %>
+            <%= f.submit "Enregistrer"%>
+          <% end %>
+      </div>
+
+
+  </div>
+
+</div>

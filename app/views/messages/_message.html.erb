@@ -1,7 +1,6 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.nickname %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-</div>
+
+  <div id="message-<%= message.id %>">
+      <div class="style-infos-message"> <%= message.user.nickname.downcase %>
+      <i id="style-date"><%= message.created_at.strftime("%a %b %e at %l:%M %p").downcase %></i></div>
+      <div class="style-message"><%= message.content %></div>
+  </div>
