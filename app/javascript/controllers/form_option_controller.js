@@ -3,29 +3,34 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="option-index"
 export default class extends Controller {
-  static targets = ["noend", "end", "liste", "carte", "nouveau"]
+  static targets = ["noend", "end", "list", "map", "new"]
 
   connect() {
     console.log("couc")
   }
 
-  revealContent(event) {
+  revealList() {
 
+    this.listTarget.classList.remove("d-none")
+    this.mapTarget.classList.add("d-none")
+    this.newTarget.classList.add("d-none")
 
-    // if (this.event.carteTarget) {
+  }
 
-    //   console.log("if1")
+  revealMap() {
 
-    //   this.listeTarget.classList.add("d-none") && this.carteTarget.classList.remove("d-none") && this.nouveauTarget.classList.add("d-none")
-    // }
-    // else if (this.nouveauTarget) {
-    //   console.log("if2")
-    //   this.nouveauTarget.classList.remove("d-none") && this.carteTarget.classList.add("d-none") && this.listeTarget.classList.add("d-none")
-    // }
-    // else if (this.listeTarget) {
-    //   console.log("if3")
-    //   this.nouveauTarget.classList.add("d-none") && this.carteTarget.classList.add("d-none")
-    // }
+    this.mapTarget.classList.remove("d-none")
+    this.listTarget.classList.add("d-none")
+    this.newTarget.classList.add("d-none")
+
+  }
+
+  revealNew() {
+
+    this.newTarget.classList.remove("d-none")
+    this.mapTarget.classList.add("d-none")
+    this.listTarget.classList.add("d-none")
+
   }
 
   displayForm() {
