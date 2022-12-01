@@ -7,8 +7,20 @@ data-room-subscription-room-id-value="<%= @room.id %>">
     <%= link_to "Retour à la home", rooms_path %>
   </h1>
 
+
+    </div>
+    <%= form_with url: room_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Chercher dans les messages"
+    %>
+    <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+    <% end %>
+
+
     <div class="messages" data-room-subscription-target="messages">
-      <% @room.messages.each do |message| %>
+      <% @messages.each do |message| %>
         <%= render "messages/message", message: message %>
       <% end %>
     </div>
@@ -22,6 +34,3 @@ data-room-subscription-room-id-value="<%= @room.id %>">
                 wrapper_html: {class: "flex-grow-1"}%>
     <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
   <% end %>
-
-
-</div>
