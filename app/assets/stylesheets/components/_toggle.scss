@@ -30,7 +30,7 @@
   left: 4px;
   width: 32px;
   height: 32px;
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 50%;
   transform: translateY(-50%);
   transition: all .5s;
@@ -41,3 +41,14 @@
 .switch input:checked + span:before {
   left: 34px;
 }
+
+button {
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-size: 1.3em;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+button:hover {opacity: 0.6}
