@@ -15,6 +15,8 @@
   <button data-action="click->form-option#revealMap"> map </button>
   <button data-action="click->form-option#revealNew"> new </button>
 
+<HR ALIGN=RIGHT WIDTH="2%">
+
   <div data-form-option-target="list">
     <% @rooms.each do |room|%>
       <div>
@@ -24,10 +26,10 @@
         <%= room.start_date %>
         <%= room.end_date %>
         <p>
-          <%= link_to "Show this list", room %>
+        <%= link_to "Show this list", room %>
         </p>
       </div>
-      <% end %>
+    <% end %>
   </div>
 
 

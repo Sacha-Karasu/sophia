@@ -6,4 +6,8 @@ class Message < ApplicationRecord
     user.id == a_user.id
   end
 
+  include PgSearch::Model
+  pg_search_scope :search_by_content,
+  against: [ :content],
+  using: { tsearch: { prefix: true } }
 end
