@@ -19,7 +19,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ff0000;
+  background: $gold;
   border-radius: 20px;
 }
 .switch input + span:before {
@@ -36,14 +36,14 @@
   transition: all .5s;
 }
 .switch input:checked + span {
-  background: #0062ff;
+  background: $gold;
 }
 .switch input:checked + span:before {
   left: 34px;
 }
 
 button {
-  background: transparent;
+  background: linear-gradient(to left top, #2582dd, $gold);
   color: #fff;
   border: 0;
   font-size: 1.3em;
@@ -51,4 +51,7 @@ button {
   transition: 0.3s;
 }
 
-button:hover {opacity: 0.6}
+button:hover {
+  // opacity: 0.9
+  filter: brightness(1.1);
+}
