@@ -1,4 +1,4 @@
-<div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>">
+<div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
   <h1> <%= @room.name %> <%= @room.latitude %> <%= @room.longitude %></h1>
 
   <h1>
@@ -18,31 +18,37 @@
   </h1>
 
 
-    </div>
-    <%= form_with url: room_path, method: :get, class: "d-flex" do %>
+  <%= form_with url: room_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Chercher dans les messages"
     %>
     <%= submit_tag "Rechercher", class: "btn btn-primary" %>
-    <% end %>
+  <% end %>
 
-
-    <div class="messages" data-room-subscription-target="messages">
+  <div data-controller="scroll-custom">
+    <div id="messages" data-room-subscription-target="messages" style="max-height: 60vh;
+    overflow: scroll;" data-scroll-custom-target="messages">
       <% @messages.each do |message| %>
-        <%= render "messages/message", message: message %>
+        <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+            <%= render "messages/message", message: message %>
+          </div>
+        </div>
       <% end %>
     </div>
+  </div>
 
-  <%= simple_form_for [@room, @message],
-    html: { data: { action: "turbo:submit-end->room-subscription#resetForm" },
-    class: "d-flex" } do |f|%>
-    <%= f.input :content,
-                label: false,
-                placeholder: "Message ##{@room.name}",
-                wrapper_html: {class: "flex-grow-1"}%>
-    <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
-  <% end %>
+  <div style="position: sticky; bottom: 10px; background-color: #000000ab;", id="end-of-messages">
+    <%= simple_form_for [@room, @message],
+      html: { data: {action: "turbo:submit-end->room-subscription#resetForm"},
+      class: "d-flex" } do |f|%>
+      <%= f.input :content,
+                  label: false,
+                  placeholder: "Message ##{@room.name}",
+                  wrapper_html: {class: "flex-grow-1"}%>
+      <%= f.submit "Envoyer", class: "btn btn-primary mb-3"%>
+    <% end %>
+  </div>
 </div>
-<% console %>
