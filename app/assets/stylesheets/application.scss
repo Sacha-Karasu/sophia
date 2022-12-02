@@ -34,6 +34,7 @@ h1 {
 
 a {
   color: white;
+  text-decoration: none;
 }
 
 .main-grid{
@@ -47,6 +48,51 @@ a {
   flex-direction: column;
   align-items: flex-end;
 }
+
+// à mettre dans des partiales
+.index-room-container{
+  padding: 8px;
+  // letter-spacing: 2px;
+}
+
+.index-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to left top, #2581ddb5, #cfc9b1, #bb69a9);
+  background-clip: text;
+  color: transparent;
+}
+
+.room-details {
+  border: solid 1px;
+  border-radius: 8px;
+  margin: 30px;
+  padding: 11px;
+}
+
+.mes-rooms {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to left top, #FFE259, #FFA751);
+  background-clip: text;
+  color: transparent;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+}
+
+#mes-rooms-name {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 2px;
+  font-size: 20px;
+  margin-right: 4px;
+}
+
+// .room-details a {
+//   text-decoration: none;
+// }
 
 h2 {
   color: $light-gray1;
