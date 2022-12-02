@@ -1,17 +1,4 @@
 
-<% current_user.rooms_with_messages_in.each do |room| %>
-<%= room.name %>
-<%= link_to "Reprendre la conversation", room %>
-<% end %>
-
-<%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a room"
-  %>
-  <%= submit_tag "Recherche", class: "btn btn-primary" %>
-<% end %>
 
 
 <div data-controller="form-option">
@@ -19,19 +6,41 @@
   <button data-action="click->form-option#revealMap"> map </button>
   <button data-action="click->form-option#revealNew"> new </button>
 
-  <div data-form-option-target="list">
-    <% @rooms.each do |room|%>
-      <div>
-        <%= room.name %>
-        <%= room.category %>
-        <%= room.location %>
-        <%= room.start_date %>
-        <%= room.end_date %>
-        <p>
-          <%= link_to "Show this list", room %>
-        </p>
-      </div>
+  <br>
+  <div class="mes-rooms">Mes rooms</div>
+  <div style="padding:8px; display:flex;">
+      <% current_user.rooms_with_messages_in.each do |room| %>
+        <%= link_to room_path(room) do %>
+          <div id="mes-rooms-name"> <%= room.name %> //</div>
+        <% end %>
       <% end %>
+    </div>
+
+  <div data-form-option-target="list" class="index-room-container">
+
+    <%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a room"
+      %>
+      <%= submit_tag "Recherche", class: "btn btn-primary" %>
+    <% end %>
+
+    <% @rooms.each do |room|%>
+      <%= link_to room_path(room) do %>
+        <div class="room-details">
+          <div class="index-title"><%= room.name %></div>
+          <div><strong>Où?</strong> <%= room.location %></div>
+          <div><strong>Catégorie :</strong> <%= room.category %></div>
+          <div>
+            <% if room.end_date %>
+              <strong>Fin :</strong> <%= room.end_date %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
 
