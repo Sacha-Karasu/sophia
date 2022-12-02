@@ -36,6 +36,8 @@ class RoomsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {room: room})
       }
     end
+
+    @rooms_with_messages_in = current_user.rooms
   end
 
   def destroy

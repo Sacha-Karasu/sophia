@@ -1,4 +1,9 @@
 
+<% current_user.rooms_with_messages_in.each do |room| %>
+<%= room.name %>
+<%= link_to "Reprendre la conversation", room %>
+<% end %>
+
 <%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -8,14 +13,10 @@
   <%= submit_tag "Recherche", class: "btn btn-primary" %>
 <% end %>
 
-<% console %>
-
 <div data-controller="form-option">
   <button data-action="click->form-option#revealList"> list </button>
   <button data-action="click->form-option#revealMap"> map </button>
   <button data-action="click->form-option#revealNew"> new </button>
-
-<HR ALIGN=RIGHT WIDTH="2%">
 
   <div data-form-option-target="list">
     <% @rooms.each do |room|%>
@@ -26,10 +27,10 @@
         <%= room.start_date %>
         <%= room.end_date %>
         <p>
-        <%= link_to "Show this list", room %>
+          <%= link_to "Show this list", room %>
         </p>
       </div>
-    <% end %>
+      <% end %>
   </div>
 
 
