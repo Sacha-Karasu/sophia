@@ -1,5 +1,5 @@
 <div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
-  <h1> <%= @room.name %> <%= @room.latitude %> <%= @room.longitude %></h1>
+  <h1> <%= @room.name %> <%= @room.location %></h1>
 
   <h1>
     <%= link_to "Détruire la room", room_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
