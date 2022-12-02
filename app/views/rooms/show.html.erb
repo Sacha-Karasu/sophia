@@ -5,9 +5,9 @@
     <%= link_to "Détruire la room", room_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
     <%= link_to "Retour à la home", rooms_path %>
 
-    <div data-controller="location-nomade">
+    <div data-controller="location-nomade" data-location-nomade-room-value="<%= @room.id %>">
       <% if current_user == @room.user && @room.motion %>
-        <i data-action="click->location-nomade#actualiseLocation" class="fa-solid fa-location-crosshairs"></i>
+        <i data-action="click->location-nomade#actualiseLocation" data-location-nomade-target="icon" class="fa-solid fa-location-crosshairs"></i>
       <% else %>
         <%= link_to room_path(@room) do %>
           <i class="fa-solid fa-arrows-rotate"></i>
@@ -45,3 +45,4 @@
     <%= f.submit "Envoyer", class: "btn btn-primary mb-3" %>
   <% end %>
 </div>
+<% console %>

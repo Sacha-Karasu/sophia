@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:nomade]
 
   def create
     @room = Room.new(room_params)
@@ -56,10 +57,8 @@ class RoomsController < ApplicationController
   end
 
   def nomade
-    @room = Room.find(params[:id])
-    @room.update(latitude: crd.latitude)
-    @room.update(longitude: crd.longitude)
-    redirect_to room_path(@rooms)
+    @room = Room.find(params["room"])
+    @room.update!(latitude: params["latitude"], longitude: params["longitude"])
   end
 
   private

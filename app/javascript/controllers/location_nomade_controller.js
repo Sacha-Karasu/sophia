@@ -3,7 +3,10 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="location-nomade"
 export default class extends Controller {
 
+  static targets = [ "icon" ]
+
   static values = {
+    room: Number,
     apiKey: String,
     markers: Array
   }
@@ -14,36 +17,25 @@ export default class extends Controller {
 
   actualiseLocation() {
 
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
+    const icon = this.roomValue;
+    console.log(icon);
+
+    const success = (position) => {
+
+      fetch(`http://${window.location.host}/nomade`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({"latitude": position.coords.latitude, "longitude": position.coords.longitude, "room": icon })
+      })
+      location.reload();
     };
 
-    function success(pos) {
-      console.log("coucu")
-      const crd = pos.coords;
+    const error = (error) => {
+      console.log(error);
+    };
 
-      console.log('Your current position is:');
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
-    }
+    navigator.geolocation.getCurrentPosition(success, error);
 
-    function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
 
-    navigator.geolocation.getCurrentPosition(success, error, options);
-
-    fetch(`https://${window.location.host}/nomade`, {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({"latitude": crd.latitude, "longitude": crd.longitude})
-    })
-    .then(response => response.json())
-    .then((data) => {
-
-    })
   }
 }
