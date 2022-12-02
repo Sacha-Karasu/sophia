@@ -10,6 +10,9 @@ application.register("form-option", FormOptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LocationNomadeController from "./location_nomade_controller"
+application.register("location-nomade", LocationNomadeController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
