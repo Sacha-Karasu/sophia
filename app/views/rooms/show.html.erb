@@ -1,22 +1,29 @@
 <div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
-  <h1> <%= @room.name %> <%= @room.latitude %> <%= @room.longitude %></h1>
-
-  <h1>
-    <%= link_to "Détruire la room", room_path(@room), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    <%= link_to "Retour à la home", rooms_path %>
-
-    <div data-controller="location-nomade" data-location-nomade-room-value="<%= @room.id %>">
-      <% if current_user == @room.user && @room.motion %>
-        <i data-action="click->location-nomade#actualiseLocation" data-location-nomade-target="icon" class="fa-solid fa-location-crosshairs"></i>
-      <% else %>
-        <%= link_to room_path(@room) do %>
-          <i class="fa-solid fa-arrows-rotate"></i>
-        <% end %>
-      <% end %>
+  <div class="main-grid">
+    <div>
+      <h1> <%= @room.name %> </h1> <%= @room.latitude %> <%= @room.longitude %>
     </div>
 
-  </h1>
-
+    <div>
+     <div id="trois">
+        <% if current_user == @room.user %>
+          <%= link_to room_path(@room), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        <% end %>
+      <br>
+        <div data-controller="location-nomade" data-location-nomade-room-value="<%= @room.id %>">
+          <% if current_user == @room.user && @room.motion %>
+            <i data-action="click->location-nomade#actualiseLocation" data-location-nomade-target="icon" class="fa-solid fa-location-crosshairs"></i>
+          <% else %>
+            <%= link_to room_path(@room) do %>
+              <i class="fa-solid fa-arrows-rotate"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <%= form_with url: room_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
