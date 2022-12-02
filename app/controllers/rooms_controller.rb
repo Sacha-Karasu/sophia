@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:nomade]
 
   def create
     @room = Room.new(room_params)
@@ -53,6 +54,11 @@ class RoomsController < ApplicationController
     now = DateTime.now
     final = @room.date_end
     @room.destroy if now >= final
+  end
+
+  def nomade
+    @room = Room.find(params["room"])
+    @room.update!(latitude: params["latitude"], longitude: params["longitude"])
   end
 
   private
