@@ -12,21 +12,15 @@ class MessagesController < ApplicationController
     if @message.save
       RoomChannel.broadcast_to(
         @room,
-        render_to_string(partial: "message", locals: { message: @message })
+        message: render_to_string(partial: "message", locals: { message: @message }),
+        sender_id: @message.user.id
       )
       head :ok
       # redirect_to room_path(@room)
     else
       render "rooms/show", status: :unprocessable_entity
     end
-
   end
-
-  # RoomChannel.broadcast_to(
-  #   @room,
-  #   message: render_to_string(partial: "message", locals: { message: @message }),
-  #   sender_id: @message.user.id
-  # )
 
   private
 
