@@ -18,7 +18,6 @@ body {
   color: white;
   background-color: black;
   font-family: 'Times New Roman', Times, serif;
-  padding: 16px;
 }
 
 p{
@@ -50,44 +49,70 @@ a {
 }
 
 // à mettre dans des partiales
-.index-room-container{
-  padding: 8px;
-  // letter-spacing: 2px;
+
+.style-search-bar {
+  margin: 20px 36px;
 }
 
+.style-option-bouton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h4 {
+  background-color: black;
+  color: white;
+  font-family:'Times New Roman', Times, serif;
+}
+
+
 .index-title {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 24px;
-  letter-spacing: 2px;
-  background-image: linear-gradient(to left top, #2581ddb5, #cfc9b1, #bb69a9);
-  background-clip: text;
-  color: transparent;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: white;
 }
 
 .room-details {
-  border: solid 1px;
-  border-radius: 8px;
-  margin: 30px;
-  padding: 11px;
+  border-radius: 10px;
+  margin: 20px 36px;
+  padding: 15px;
+  background-image: linear-gradient(to right bottom, #1a2980b5, #26d0cd7d, #d9d9d900);
 }
 
-.mes-rooms {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 24px;
-  letter-spacing: 2px;
-  background-image: linear-gradient(to left top, #FFE259, #FFA751);
-  background-clip: text;
-  color: transparent;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 8px;
-}
+// .mes-rooms {
+//   font-family: 'Bebas Neue', cursive;
+//   font-size: 24px;
+//   letter-spacing: 2px;
+//   background-image: linear-gradient(to left top, #FFE259, #FFA751);
+//   background-clip: text;
+//   color: transparent;
+//   padding-left: 8px;
+//   padding-right: 8px;
+//   padding-top: 8px;
+// }
 
 #mes-rooms-name {
-  font-family: 'Bebas Neue', cursive;
-  letter-spacing: 2px;
-  font-size: 20px;
-  margin-right: 4px;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 1px;
+  font-size: 24px;
+  border-radius: 10px;
+  width: max-content;
+  padding: 10px 20px;
+  margin: 10px;
+  background-image: linear-gradient(to right bottom, #FFE000, #799F0C, #789f0c00);
+}
+
+.room-fav{
+  display: flex;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#new-style{
+  margin: 10px 20px;
+
 }
 
 // .room-details a {

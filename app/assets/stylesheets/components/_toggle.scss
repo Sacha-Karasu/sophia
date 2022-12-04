@@ -19,8 +19,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: $gold;
+  background-image: linear-gradient(to right bottom, #cc285E, #753A88);
   border-radius: 20px;
+
 }
 .switch input + span:before {
   content: "";
@@ -40,18 +41,4 @@
 }
 .switch input:checked + span:before {
   left: 34px;
-}
-
-button {
-  background: linear-gradient(to left top, #2582dd, $gold);
-  color: #fff;
-  border: 0;
-  font-size: 1.3em;
-  opacity: 1;
-  transition: 0.3s;
-}
-
-button:hover {
-  // opacity: 0.9
-  filter: brightness(1.1);
 }
