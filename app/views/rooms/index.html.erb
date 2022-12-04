@@ -27,18 +27,23 @@
       <%= submit_tag "Recherche", class: "btn btn-primary" %>
     <% end %>
 
+
     <% @rooms.each do |room|%>
-      <%= link_to room_path(room) do %>
-        <div class="room-details">
-          <div class="index-title"><%= room.name %></div>
-          <div><strong>Où?</strong> <%= room.location %></div>
-          <div><strong>Catégorie :</strong> <%= room.category %></div>
-          <div>
-            <% if room.end_date %>
-              <strong>Fin :</strong> <%= room.end_date %>
-            <% end %>
+      <% unless current_user.rooms_with_messages_in.each.include?(room) %>
+
+        <%= link_to room_path(room) do %>
+          <div class="room-details">
+              <div class="index-title"><%= room.name %></div>
+              <div><strong>Où?</strong> <%= room.location %></div>
+              <div><strong>Catégorie :</strong> <%= room.category %></div>
+              <div>
+                <% if room.end_date %>
+                  <strong>Fin :</strong> <%= room.end_date %>
+                <% end %>
+              </div>
           </div>
-        </div>
+        <% end %>
+
       <% end %>
     <% end %>
   </div>

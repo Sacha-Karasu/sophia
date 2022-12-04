@@ -39,6 +39,7 @@ class RoomsController < ApplicationController
     end
 
     @rooms_with_messages_in = current_user.rooms
+    console
   end
 
   def destroy
