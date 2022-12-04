@@ -58,6 +58,8 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  // pour décoller ce menu des rooms favs
+  padding-top: 8px;
 }
 
 h4 {
@@ -108,10 +110,14 @@ h4 {
   display: flex;
   margin-right: 20px;
   margin-left: 20px;
+  max-width: 60vh;
+  overflow: scroll;
+  padding: 4px;
 }
 
 #new-style{
   margin: 10px 20px;
+  margin-bottom: 60px;
 
 }
 
