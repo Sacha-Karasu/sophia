@@ -1,43 +1,43 @@
-
+<div class="style-search-bar">
+  <%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Recherche"
+        %>
+        <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
+  <% end %>
+</div>
 
 
 <div data-controller="form-option">
-  <button data-action="click->form-option#revealList"> list </button>
-  <button data-action="click->form-option#revealMap"> map </button>
-  <button data-action="click->form-option#revealNew"> new </button>
 
-  <br>
-  <div class="mes-rooms">Mes rooms</div>
-  <div style="padding:8px; display:flex;">
+  <div class="room-fav">
       <% current_user.rooms_with_messages_in.each do |room| %>
         <%= link_to room_path(room) do %>
-          <div id="mes-rooms-name"> <%= room.name %> //</div>
+          <div id="mes-rooms-name"> <%= room.name %></div>
         <% end %>
       <% end %>
-    </div>
+  </div>
 
-  <div data-form-option-target="list" class="index-room-container">
+  <div class="style-option-bouton">
+    <h4 data-action="click->form-option#revealList"> list </h4>
+    <h4 data-action="click->form-option#revealMap"> map </h4>
+    <h4 data-action="click->form-option#revealNew"> new </h4>
+  </div>
 
-    <%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a room"
-      %>
-      <%= submit_tag "Recherche", class: "btn btn-primary" %>
-    <% end %>
+  <div data-form-option-target="list" >
 
     <% @rooms.each do |room|%>
       <%= link_to room_path(room) do %>
         <div class="room-details">
-          <div class="index-title"><%= room.name %></div>
-          <div><strong>Où?</strong> <%= room.location %></div>
-          <div><strong>Catégorie :</strong> <%= room.category %></div>
-          <div>
+          <div class="index-title"><%= room.name %> -  <%= room.category %></div>
+
+          <em>
             <% if room.end_date %>
-              <strong>Fin :</strong> <%= room.end_date %>
+              <%= room.end_date.strftime('%d/%m/%Y')%>
             <% end %>
-          </div>
+          </em>
         </div>
       <% end %>
     <% end %>
@@ -53,17 +53,14 @@
   </div>
 
 
-  <div class="d-none" data-form-option-target="new">
-
-      <h1>Ajouter une room</h1>
-
+  <div id="new-style" data-form-option-target="new">
       <label class="switch">
         <input data-action="change->form-option#displayForm" type="checkbox">
         <span></span>
       </label>
 
       <div data-form-option-target="noend">
-        <h2>Créer une room permanente</h2>
+        <h2 class="text-white">Créer une room permanente</h2>
           <%= simple_form_for ([@room]) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
@@ -75,7 +72,7 @@
       </div>
 
       <div data-form-option-target="end" class="d-none">
-        <h2>Créer une room éphémère</h2>
+        <h2 class="text-white">Créer une room éphémère</h2>
           <%= simple_form_for ([@room]) do |f| %>
             <%= f.input :name %>
             <%= f.input :category %>
