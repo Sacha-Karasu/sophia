@@ -1,97 +1,105 @@
-<div class="style-search-bar">
-  <%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Recherche"
-        %>
-        <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
-  <% end %>
-</div>
-
-
-<div data-controller="form-option" style="margin-top: -8px;">
-  <%# Affichage rooms dans lesquelles le user a posté au moins 1 message %>
-
-  <div class="style-option-bouton">
-    <h4 data-action="click->form-option#revealList" class="style-option-bouton1"> liste </h4>
-    <h4 data-action="click->form-option#revealMap" class="style-option-bouton2"> carte </h4>
-    <h4 data-action="click->form-option#revealNew" class="style-option-bouton3"> nouveau </h4>
-  </div>
-
-  <%# Affichage list (par défaut) %>
-  <div data-form-option-target="list" >
-    <% @rooms.each do |room|%>
-      <% unless current_user.rooms_with_messages_in.include?(room) %>
-        <%= link_to room_path(room) do %>
-          <div class="room-details">
-              <div class="index-title"><%= room.name %> - <%= room.category %></div>
-              <div><%= room.location %></div>
-              <div>
-                <% if room.end_date %>
-                  <%= room.end_date.strftime('%d/%m/%Y') %>
-                <% end %>
-              </div>
-          </div>
-        <% end %>
-      <% end %>
+<div data-controller="user-position">
+  <div class="style-search-bar">
+    <%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Recherche"
+          %>
+          <%= button_tag(type: "submit", class: "btn btn-default") do  %>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          <%end%>
     <% end %>
   </div>
 
-  <%# Affichage map %>
-  <div class="d-none" data-form-option-target="map">
-    <div style="width: 100%; height: 600px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div data-controller="form-option" style="margin-top: -8px;">
+
+    <div class="style-option-bouton">
+      <h4 data-action="click->form-option#revealList" class="style-option-bouton1"> liste </h4>
+      <h4 data-action="click->form-option#revealMap" class="style-option-bouton2"> carte </h4>
+      <h4 data-action="click->form-option#revealNew" class="style-option-bouton3"> nouveau </h4>
     </div>
-  </div>
 
-  <%# Affichage create new room %>
-  <div class="d-none" id="new-style" data-form-option-target="new">
-      <div class="new-toggle-style">
-        <label class="switch">
-          <input data-action="change->form-option#displayForm" type="checkbox">
-          <span></span>
-        </label>
-      </div>
-    <%# New room permanente %>
-      <div data-form-option-target="noend">
-          <h2 class="text-white">Créer une room permanente</h2>
-          <%= simple_form_for ([@room]) do |f| %>
-            <%= f.input :name %>
-            <%= f.input :category %>
-            <%= f.input :location %>
-            <%= f.input :description, as: :text %>
-            <%= f.input :start_date, as: :string, type: :text,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
-                input_html: { data: { controller: "flatpickr" } } %>
-            <%= f.submit "Enregistrer", class: "btn-submit"%>
+    <%# Affichage list (par défaut) %>
+    <div data-form-option-target="list" >
+      <% @rooms.each do |room|%>
+        <% unless current_user.rooms_with_messages_in.include?(room) %>
+          <%= link_to room_path(room) do %>
+            <div class="room-details">
+                <div class="index-title"><%= room.name %> - <%= room.category %></div>
+                <div><%= room.location %></div>
+                <div>
+                  <% if room.end_date %>
+                    <%= room.end_date.strftime('%d/%m/%Y') %>
+                  <% end %>
+                </div>
+            </div>
           <% end %>
-      </div>
-    <%# New room éphémère %>
-      <div data-form-option-target="end" class="d-none">
+        <% end %>
+      <% end %>
+    </div>
 
-          <h2 class="text-white">Créer une room éphémère</h2>
-
-          <%= simple_form_for ([@room]) do |f| %>
-            <%= f.input :name %>
-            <%= f.input :category %>
-            <%= f.input :location %>
-            <%= f.input :description, as: :text %>
-            <%= f.input :start_date, as: :string, type: :text,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
-                input_html: { data: { controller: "flatpickr" } } %>
-            <%= f.input :end_date, as: :string, type: :text,
-                wrapper_html: { class: "mb-4" },
-                label_html: { class: "form-label text-secondary fw-bold" },
-                input_html: { data: { controller: "flatpickr" } } %>
-            <%= f.submit "Enregistrer", class: "btn-submit" %>
-          <% end %>
+      <%# Affichage map %>
+      <div class="d-none" data-form-option-target="map">
+        <div style="width: 100%; height: 600px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
 
-  </div>
+    <%# Affichage create new room %>
+    <div class="d-none" id="new-style" data-form-option-target="new">
+        <div class="new-toggle-style">
+          <label class="switch">
+            <input data-action="change->form-option#displayForm" type="checkbox">
+            <span></span>
+          </label>
+        </div>
+      <%# New room permanente %>
+        <div data-form-option-target="noend">
+            <h2 class="text-white">Créer une room permanente</h2>
+            <%= simple_form_for ([@room]) do |f| %>
+              <%= f.input :name %>
+              <%= f.input :category %>
+              <%= f.input :location %>
+              <%= f.input :description, as: :text %>
+              <%= f.input :start_date, as: :string, type: :text,
+                  wrapper_html: { class: "mb-4" },
+                  label_html: { class: "form-label text-secondary fw-bold" },
+                  input_html: { data: { controller: "flatpickr" } } %>
+              <%= f.submit "Enregistrer", class: "btn-submit"%>
+            <% end %>
+        </div>
+        <%# New room éphémère %>
+        <div data-form-option-target="end" class="d-none">
+            <h2 class="text-white">Créer une room éphémère</h2>
+            <%= simple_form_for ([@room]) do |f| %>
+              <%= f.input :name %>
+              <%= f.input :category %>
+              <%= f.input :location %>
+              <%= f.input :description, as: :text %>
+              <%= f.input :start_date, as: :string, type: :text,
+                  wrapper_html: { class: "mb-4" },
+                  label_html: { class: "form-label text-secondary fw-bold" },
+                  input_html: { data: { controller: "flatpickr" } } %>
+              <%= f.input :end_date, as: :string, type: :text,
+                  wrapper_html: { class: "mb-4" },
+                  label_html: { class: "form-label text-secondary fw-bold" },
+                  input_html: { data: { controller: "flatpickr" } } %>
+              <%= f.submit "Enregistrer", class: "btn-submit" %>
+            <% end %>
+        </div>
+    </div>
 
+  <%# TEST comparaison position user - position room %>
+    Ma position :
+    lat. : <%= current_user.latitude %>;
+    long. : <%= current_user.longitude %>
+    <br>
+    Autour de moi :
+    <% @rooms_around_user.each do |room| %>
+    <div><%= room.name %> // <%= room.location %></div>
+    <% end %>
+  <%# FIN TEST %>
 </div>

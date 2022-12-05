@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "rooms", to: "rooms#autodestruction"
   get "fav", to: "rooms#fav"
   post "nomade", to: "rooms#nomade"
+  post "location", to: "application#location"
 end

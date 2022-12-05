@@ -28,5 +28,8 @@ application.register("room-subscription", RoomSubscriptionController)
 import ScrollCustomController from "./scroll_custom_controller"
 application.register("scroll-custom", ScrollCustomController)
 
-import ScrollHorizontalController from "./scroll_horizontal_controller"
-application.register("scroll-horizontal", ScrollHorizontalController)
+// import ScrollHorizontalController from "./scroll_horizontal_controller"
+// application.register("scroll-horizontal", ScrollHorizontalController)
+
+import UserPositionController from "./user_position_controller"
+application.register("user-position", UserPositionController)
