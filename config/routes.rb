@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   get "rooms", to: "rooms#autodestruction"
   post "nomade", to: "rooms#nomade"
+  post "location", to: "application#location"
 end

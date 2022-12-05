@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["noend", "end", "list", "map", "new"]
 
   connect() {
-    console.log("couc")
+    console.log("Connected to form-option controller")
   }
 
   revealList() {
