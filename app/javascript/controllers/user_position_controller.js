@@ -28,16 +28,7 @@ export default class extends Controller {
 
       const crd = position.coords;
 
-      // target = {
-        //   latitude : 0,
-      //   longitude: 0
-      // };
-
-      // if (target.latitude === crd.latitude && target.longitude === crd.longitude) {
-      //   console.log('Congratulations, you reached the target');
-      //   navigator.geolocation.clearWatch(id);
-      // }
-       console.log(crd)
+      console.log(crd)
 
       fetch(`http://${window.location.host}/location`, {
         method: "POST",
@@ -54,9 +45,3 @@ export default class extends Controller {
     id = navigator.geolocation.watchPosition(success, error, options);
   }
 }
-
-//   actualiseLocation() {
-
-//     // const btnloc = this.userValue;
-//     // console.log(btnloc);
-// }

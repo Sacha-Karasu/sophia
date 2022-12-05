@@ -10,7 +10,6 @@
     <% end %>
   </div>
 
-
   <div data-controller="form-option" style="margin-top: -8px;">
     <%# Affichage rooms dans lesquelles le user a posté au moins 1 message %>
     <div class="room-fav">
@@ -94,4 +93,15 @@
     </div>
 
   </div>
+
+<%# TEST comparaison position user - position room %>
+  Ma position :
+  lat. : <%= current_user.latitude %>;
+  long. : <%= current_user.longitude %>
+  <br>
+  Autour de moi :
+  <% @rooms_around_user.each do |room| %>
+  <div><%= room.name %> // <%= room.location %></div>
+  <% end %>
+<%# FIN TEST %>
 </div>
