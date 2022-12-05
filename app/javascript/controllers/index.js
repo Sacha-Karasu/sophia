@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import FormOptionController from "./form_option_controller"
 application.register("form-option", FormOptionController)
 
@@ -16,8 +19,8 @@ application.register("location-nomade", LocationNomadeController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-// import RoomAutodestructionController from "./room_autodestruction_controller"
-// application.register("room-autodestruction", RoomAutodestructionController)
+import RoomAutodestructionController from "./room_autodestruction_controller"
+application.register("room-autodestruction", RoomAutodestructionController)
 
 import RoomSubscriptionController from "./room_subscription_controller"
 application.register("room-subscription", RoomSubscriptionController)
@@ -25,5 +28,5 @@ application.register("room-subscription", RoomSubscriptionController)
 import ScrollCustomController from "./scroll_custom_controller"
 application.register("scroll-custom", ScrollCustomController)
 
-// import ScrollTo from 'stimulus-scroll-to'
-// application.register('scroll-to', ScrollTo)
+import ScrollHorizontalController from "./scroll_horizontal_controller"
+application.register("scroll-horizontal", ScrollHorizontalController)
