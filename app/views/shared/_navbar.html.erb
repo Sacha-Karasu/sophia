@@ -1,9 +1,9 @@
 <div class="navbar <%= yield(:navbar_class) %>">
   <div class="container-fluid">
-    <a href="/"> <i class="fa-solid fa-house"></i> </a>
-    <i class="fa-solid fa-network-wired"></i>
-    <a href="/rooms"> <i class="fa-solid fa-bars"></i> </a>
-    <i class="fa-solid fa-calendar"></i>
-    <a href="/users/sign_in" target="_blank"><i class="fa-solid fa-gear"></i> </a>
+    <%= link_to root_path do %> <i class="fa-solid fa-house"></i> <% end %>
+    <%= link_to fav_path do %>  <i class="fa-solid fa-network-wired"></i><% end %>
+    <%= link_to rooms_path do %> <i class="fa-solid fa-bars"></i> <% end %>
+    <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %> <i class="fa-solid fa-calendar"></i> <% end %>
+    <%= link_to user_session_path do %> <i class="fa-solid fa-gear"></i>  <% end %>
   </div>
 </div>

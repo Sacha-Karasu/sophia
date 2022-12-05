@@ -31,15 +31,22 @@
       class: "form-control",
       placeholder: "Chercher dans les messages"
     %>
-    <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+    <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
   <% end %>
+
+
 
   <div data-controller="scroll-custom">
     <div id="messages" data-room-subscription-target="messages" style="max-height: 60vh;
     overflow: scroll;" data-scroll-custom-target="messages">
       <% @messages.each do |message| %>
         <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-          <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <div class="<%= message.sender?(current_user) ? 'sender-style d-flex' : 'receiver-style d-flex' %>">
+          <% if message.sender?(current_user) %>
+            <%= link_to message, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        <% end %>
             <%= render "messages/message", message: message %>
           </div>
         </div>
@@ -47,7 +54,7 @@
     </div>
   </div>
 
-  <div style="position: sticky; bottom: 10px; background-color: #000000ab;", id="end-of-messages">
+  <div id="end-of-messages">
     <%= simple_form_for [@room, @message],
       html: { data: {action: "turbo:submit-end->room-subscription#resetForm"},
       class: "d-flex" } do |f|%>
@@ -55,7 +62,7 @@
                   label: false,
                   placeholder: "Message ##{@room.name}",
                   wrapper_html: {class: "flex-grow-1"}%>
-      <%= f.submit "Envoyer", class: "btn btn-primary mb-3"%>
+      <%= f.submit "↑", class: "btn btn-primary mb-3"%>
     <% end %>
   </div>
 </div>

@@ -22,6 +22,16 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    if @message.user == current_user
+      @message.destroy
+      redirect_to room_path, status: :see_other
+    else
+      redirect_to room_path
+    end
+  end
+
   private
 
   def message_params

@@ -9,7 +9,7 @@
   text-shadow: 0px 0px 5px rgba(0,0,0,0.2);
   margin-top: -1px;
   margin-bottom: 20px;
-  background: linear-gradient(to left top, #0081ff, #cea900, #e039bc);
+  background: linear-gradient(to right bottom, #FFE000, #799F0C, #00000000);
 }
 
 .style-infos-message {
@@ -25,4 +25,9 @@
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   font-size: smaller;
+}
+
+#end-of-messages{
+  position: relative;
+  bottom: -406px;
 }
