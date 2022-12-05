@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)
+
 import FormOptionController from "./form_option_controller"
 application.register("form-option", FormOptionController)
 

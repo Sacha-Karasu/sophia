@@ -44,6 +44,45 @@
                   <% end %>
                 </div>
             </div>
+
+  <%# Affichage create new room %>
+  <div class="d-none" id="new-style" data-form-option-target="new">
+      <label class="switch">
+        <input data-action="change->form-option#displayForm" type="checkbox">
+        <span></span>
+      </label>
+    <%# New room permanente %>
+      <div data-form-option-target="noend">
+        <h2 class="text-white">Créer une room permanente</h2>
+          <%= simple_form_for ([@room]) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :category %>
+            <%= f.input :location %>
+            <%= f.input :description, as: :text %>
+            <%= f.input :start_date, as: :string, type: :text,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "form-label text-secondary fw-bold" },
+                input_html: { data: { controller: "flatpickr" } } %>
+            <%= f.submit "Enregistrer"%>
+          <% end %>
+      </div>
+    <%# New room éphémère %>
+      <div data-form-option-target="end" class="d-none">
+        <h2 class="text-white">Créer une room éphémère</h2>
+          <%= simple_form_for ([@room]) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :category %>
+            <%= f.input :location %>
+            <%= f.input :description, as: :text %>
+            <%= f.input :start_date, as: :string, type: :text,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "form-label text-secondary fw-bold" },
+                input_html: { data: { controller: "flatpickr" } } %>
+            <%= f.input :end_date, as: :string, type: :text,
+                wrapper_html: { class: "mb-4" },
+                label_html: { class: "form-label text-secondary fw-bold" },
+                input_html: { data: { controller: "flatpickr" } } %>
+            <%= f.submit "Enregistrer"%>
           <% end %>
         <% end %>
       <% end %>
