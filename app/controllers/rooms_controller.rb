@@ -37,7 +37,7 @@ class RoomsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {room: room})
       }
     end
-
+    # Rooms dans lesquelles user a au moins 1 message
     @rooms_with_messages_in = current_user.rooms
   end
 

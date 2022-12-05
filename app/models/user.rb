@@ -10,4 +10,5 @@ class User < ApplicationRecord
   def rooms_with_messages_in
     self.messages.map(&:room).uniq
   end
+
 end

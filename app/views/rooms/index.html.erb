@@ -10,14 +10,18 @@
 </div>
 
 
-<div data-controller="form-option">
-
+<div data-controller="form-option" style="margin-top: -8px;">
+  <%# Affichage rooms dans lesquelles le user a posté au moins 1 message %>
   <div class="room-fav">
+    <%# Remettre la liste à gauche à chaque changement de page? %>
+    <%# data-controller="scroll-horizontal"  %>
+    <%# <div data-scroll-horizontal-target="favs" style="max-width: 60vh; overflow: scroll;"> %>
       <% current_user.rooms_with_messages_in.each do |room| %>
-        <%= link_to room_path(room) do %>
+          <%= link_to room_path(room) do %>
           <div id="mes-rooms-name"> <%= room.name %></div>
-        <% end %>
+          <% end %>
       <% end %>
+    <%# </div> %>
   </div>
 
   <div class="style-option-bouton">
@@ -26,24 +30,26 @@
     <h4 data-action="click->form-option#revealNew"> new </h4>
   </div>
 
+  <%# Affichage list (par défaut) %>
   <div data-form-option-target="list" >
-
     <% @rooms.each do |room|%>
-      <%= link_to room_path(room) do %>
-        <div class="room-details">
-          <div class="index-title"><%= room.name %> -  <%= room.category %></div>
-
-          <em>
-            <% if room.end_date %>
-              <%= room.end_date.strftime('%d/%m/%Y')%>
-            <% end %>
-          </em>
-        </div>
+      <% unless current_user.rooms_with_messages_in.include?(room) %>
+        <%= link_to room_path(room) do %>
+          <div class="room-details">
+              <div class="index-title"><%= room.name %> - <%= room.category %></div>
+              <div><%= room.location %></div>
+              <div>
+                <% if room.end_date %>
+                  <%= room.end_date.strftime('%d/%m/%Y') %>
+                <% end %>
+              </div>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 
-
+  <%# Affichage map %>
   <div class="d-none" data-form-option-target="map">
     <div style="width: 100%; height: 600px;"
       data-controller="map"
@@ -52,13 +58,13 @@
     </div>
   </div>
 
-
-  <div id="new-style" data-form-option-target="new">
+  <%# Affichage create new room %>
+  <div class="d-none" id="new-style" data-form-option-target="new">
       <label class="switch">
         <input data-action="change->form-option#displayForm" type="checkbox">
         <span></span>
       </label>
-
+    <%# New room permanente %>
       <div data-form-option-target="noend">
         <h2 class="text-white">Créer une room permanente</h2>
           <%= simple_form_for ([@room]) do |f| %>
@@ -70,7 +76,7 @@
             <%= f.submit "Enregistrer"%>
           <% end %>
       </div>
-
+    <%# New room éphémère %>
       <div data-form-option-target="end" class="d-none">
         <h2 class="text-white">Créer une room éphémère</h2>
           <%= simple_form_for ([@room]) do |f| %>
@@ -83,7 +89,6 @@
             <%= f.submit "Enregistrer"%>
           <% end %>
       </div>
-
 
   </div>
 
