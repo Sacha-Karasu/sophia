@@ -13,6 +13,7 @@ export default class extends Controller {
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue;
+
   }
 
   actualiseLocation() {
@@ -22,7 +23,7 @@ export default class extends Controller {
 
     const success = (position) => {
 
-      fetch(`http://${window.location.host}/nomade`, {
+      fetch(`${window.location.protocol}://${window.location.host}/nomade`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({"latitude": position.coords.latitude, "longitude": position.coords.longitude, "room": icon })
