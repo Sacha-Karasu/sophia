@@ -33,15 +33,14 @@
   <%# Affichage list (par défaut) %>
   <div data-form-option-target="list" >
     <% @rooms.each do |room|%>
-      <% unless current_user.rooms_with_messages_in.each.include?(room) %>
+      <% unless current_user.rooms_with_messages_in.include?(room) %>
         <%= link_to room_path(room) do %>
           <div class="room-details">
-              <div class="index-title"><%= room.name %></div>
-              <div><strong>Où?</strong> <%= room.location %></div>
-              <div><strong>Catégorie :</strong> <%= room.category %></div>
+              <div class="index-title"><%= room.name %> - <%= room.category %></div>
+              <div><%= room.location %></div>
               <div>
                 <% if room.end_date %>
-                  <strong>Fin :</strong> <%= room.end_date.strftime('%d/%m/%Y') %>
+                  <%= room.end_date.strftime('%d/%m/%Y') %>
                 <% end %>
               </div>
           </div>
