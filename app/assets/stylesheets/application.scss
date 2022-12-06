@@ -92,6 +92,14 @@ h4 {
   background-image: linear-gradient(to right bottom, #1a2980b5, #26d0cd7d, #d9d9d900);
 }
 
+.room-details-inacess {
+  border-radius: 10px;
+  margin: 20px 36px;
+  padding: 15px;
+  background-image: linear-gradient(to right bottom, #3f3f41b5, #29403f7d, #14101000);
+}
+
+
 // .mes-rooms {
 //   font-family: 'Bebas Neue', cursive;
 //   font-size: 24px;
@@ -146,4 +154,16 @@ h2 {
   color: $light-gray1;
   font-family: 'Times New Roman', Times, serif;
   font-size: 24Spx;
+}
+
+.distances {
+  margin-left: 16px;
+  font-family: Times New Roman;
+  font-size: 18px;
+  font-style: italic;
+  color: grey;
+}
+
+#adress-in-room {
+  margin-left: 0px;
 }

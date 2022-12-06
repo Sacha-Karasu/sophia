@@ -17,9 +17,11 @@
     <%# data-controller="scroll-horizontal"  %>
     <%# <div data-scroll-horizontal-target="favs" style="max-width: 60vh; overflow: scroll;"> %>
       <% current_user.rooms_with_messages_in.each do |room| %>
+        <% if @rooms_around_user.include?(room) %>
           <%= link_to room_path(room) do %>
-          <div id="mes-rooms-name"> <%= room.name %></div>
+            <div id="mes-rooms-name"> <%= room.name %></div>
           <% end %>
+        <% end %>
       <% end %>
     <%# </div> %>
   </div>
@@ -32,9 +34,10 @@
       <h4 data-action="click->form-option#revealNew" data-form-option-target="newToggle" class="style-option-bouton-nav"> nouveau </h4>
     </div>
 
-    <%# Affichage list (par défaut) %>
+    <%# Affichage list rooms sans messages du user (par défaut) %>
     <div data-form-option-target="list" >
-      <% @rooms.each do |room|%>
+      <div class="distances">A moins de 1 km</div>
+      <% @rooms_around_user.each do |room|%>
         <% unless current_user.rooms_with_messages_in.include?(room) %>
           <%= link_to room_path(room) do %>
             <div class="room-details">
@@ -49,6 +52,25 @@
           <% end %>
         <% end %>
       <% end %>
+
+      <%# Le reste des rooms (sans celles dans lequelles j'ai un msg, sans celles à moins de 1km) %>
+      <div style="padding-bottom: 52px;">
+        <div class="distances">A moins de 5 km</div>
+        <% @rooms_at_5_km.each do |room| %>
+          <% unless @rooms_around_user.include?(room) %>
+            <%# && current_user.rooms_with_messages_in.include?(room) %>
+            <%# code executed only when condition is not "truthy" %>
+            <div class="room-details-inacess index-title"><%= room.name %></div>
+          <% end %>
+        <% end %>
+        <div class="distances">
+        Position :
+        lat. : <%= current_user.latitude %> /
+        long. : <%= current_user.longitude %>
+        </div>
+
+      </div>
+
     </div>
 
       <%# Affichage map %>
@@ -107,14 +129,16 @@
   </div>
 
   <%# TEST comparaison position user - position room %>
-    Ma position :
-    lat. : <%= current_user.latitude %>;
-    long. : <%= current_user.longitude %>
-    <br>
-    Autour de moi :
-    <% @rooms_around_user.each do |room| %>
-    <div><%= room.name %> // <%= room.location %></div>
-    <% end %>
+    <%# Ma position :
+    lat. : <%= current_user.latitude %>
+    <%# long. : <%= current_user.longitude %>
+    <%# <br> %>
+    <%# Autour de moi : %>
+    <%# <% @rooms_around_user.each do |room| %>
+    <%# <div><%= room.name %>
+    <%# // <%= room.location %>
+    <%# </div>  %>
+    <%# <% end %>
   <%# FIN TEST %>
 
 </div>
