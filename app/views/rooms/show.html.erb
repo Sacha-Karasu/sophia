@@ -15,28 +15,18 @@
             <i class="fa-solid fa-trash"></i>
           <% end %>
         <% end %>
-      <br>
-        <div data-controller="location-nomade" data-location-nomade-room-value="<%= @room.id %>">
-          <% if current_user == @room.user && @room.motion %>
-            <i data-action="click->location-nomade#actualiseLocation" data-location-nomade-target="icon" class="fa-solid fa-location-crosshairs"></i>
-          <% else %>
-            <%= link_to room_path(@room) do %>
-              <i class="fa-solid fa-arrows-rotate"></i>
-            <% end %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
 
-  <%= form_with url: room_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Chercher dans les messages"
-    %>
-    <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
-  <% end %>
+    <%= form_with url: room_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Chercher dans les messages"
+      %>
+      <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
+    <% end %>
 
 
 
