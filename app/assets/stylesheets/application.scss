@@ -18,8 +18,9 @@
 
 body {
   color: white;
-  background-color: black;
+  // background-color: black;
   font-family: 'Times New Roman', Times, serif;
+  height: 100%;
 }
 
 p{
@@ -32,6 +33,17 @@ h1 {
   letter-spacing: .2rem;
   font-size: 32px;
 }
+
+#log-h{
+  margin: 100px 99px;
+}
+
+h2 {
+  color: $light-gray1;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 24Spx;
+}
+
 
 a {
   color: white;
@@ -70,7 +82,6 @@ a {
   border-bottom: solid 1px;
 }
 
-
 h4 {
   background-color: black;
   color: white;
@@ -85,65 +96,13 @@ h4 {
   color: white;
 }
 
-.room-details {
-  border-radius: 10px;
-  margin: 20px 36px;
-  padding: 15px;
-  background-image: linear-gradient(to right bottom, #1a2980b5, #26d0cd7d, #d9d9d900);
-}
-
-// .mes-rooms {
-//   font-family: 'Bebas Neue', cursive;
-//   font-size: 24px;
-//   letter-spacing: 2px;
-//   background-image: linear-gradient(to left top, #FFE259, #FFA751);
-//   background-clip: text;
-//   color: transparent;
-//   padding-left: 8px;
-//   padding-right: 8px;
-//   padding-top: 8px;
-// }
-
-#mes-rooms-name {
-  font-family: 'Times New Roman', Times, serif;
-  letter-spacing: 1px;
-  font-size: 24px;
-  border-radius: 10px;
-  width: max-content;
-  padding: 10px 20px;
-  margin: 10px;
-  background-image: linear-gradient(to right bottom, #cc2B5E, #753A88, #00000000);
-
-}
-
-// @keyframes floating {
-//   0% { transform: translate(0,  0px); }
-//   50%  { transform: translate(0, 15px); }
-//   100%   { transform: translate(0, -0px); }
-// }
-
-
-.room-fav{
-  display: flex;
-  margin-right: 20px;
-  margin-left: 20px;
-  padding: 4px;
-  max-width: 40vh;
-  overflow: scroll;
-}
-
 #new-style{
   margin: 10px 20px;
   margin-bottom: 60px;
 
 }
 
-// .room-details a {
-//   text-decoration: none;
-// }
-
-h2 {
-  color: $light-gray1;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 24Spx;
+.style-log{
+  color: blanc;
+  margin: 80px 40px;
 }
