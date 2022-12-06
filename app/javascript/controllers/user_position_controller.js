@@ -30,7 +30,7 @@ export default class extends Controller {
 
       console.log(crd)
 
-      fetch(`http://${window.location.host}/location`, {
+      fetch(`${window.location.protocol}://${window.location.host}/location`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({"latitude": crd.latitude, "longitude": crd.longitude })
