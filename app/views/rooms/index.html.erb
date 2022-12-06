@@ -26,10 +26,10 @@
 
   <div data-controller="form-option" style="margin-top: -8px;">
 
-    <div data-controller="toggle-style" class="style-option-bouton">
-      <h4 data-action="click->form-option#revealList" data-toggle-style-target="listToggle" data-action="click->toggle-style#styleToggle" class="style-option-bouton1"> liste </h4>
-      <h4 data-action="click->form-option#revealMap" data-toggle-style-target="mapToggle" data-action="click->toggle-style#styleToggle" class="style-option-bouton2"> carte </h4>
-      <h4 data-action="click->form-option#revealNew" data-toggle-style-target="newToggle" data-action="click->toggle-style#styleToggle" class="style-option-bouton3"> nouveau </h4>
+    <div class="style-option-bouton">
+      <h4 data-action="click->form-option#revealList" data-form-option-target="listToggle" class="style-option-bouton-nav"> liste </h4>
+      <h4 data-action="click->form-option#revealMap" data-form-option-target="mapToggle" class="style-option-bouton-nav"> carte </h4>
+      <h4 data-action="click->form-option#revealNew" data-form-option-target="newToggle" class="style-option-bouton-nav"> nouveau </h4>
     </div>
 
     <%# Affichage list (par défaut) %>

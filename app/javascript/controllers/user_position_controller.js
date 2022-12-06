@@ -29,7 +29,6 @@ export default class extends Controller {
       const crd = position.coords;
 
       console.log(crd)
-      // ${window.location.protocol}
       fetch(`${window.location.protocol}//${window.location.host}/location`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
