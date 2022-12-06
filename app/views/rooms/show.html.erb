@@ -44,7 +44,7 @@
           <div class="<%= message.sender?(current_user) ? 'sender-style d-flex' : 'receiver-style d-flex' %>">
           <% if message.sender?(current_user) %>
             <%= link_to message, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-            <i class="fa-solid fa-trash"></i>
+            <div id="trash-style"><i class="fa-solid fa-trash"></i></div>
           <% end %>
         <% end %>
             <%= render "messages/message", message: message %>
