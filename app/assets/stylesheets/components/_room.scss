@@ -26,3 +26,10 @@
   max-width: 40vh;
   overflow: scroll;
 }
+
+.room-details-inacess {
+  border-radius: 10px;
+  margin: 20px 36px;
+  padding: 15px;
+  background-image: linear-gradient(to right bottom, #3f3f41b5, #29403f7d, #14101000);
+}
