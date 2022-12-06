@@ -12,12 +12,24 @@
     <% end %>
   </div>
 
+  <div class="room-fav">
+    <%# Remettre la liste à gauche à chaque changement de page? %>
+    <%# data-controller="scroll-horizontal"  %>
+    <%# <div data-scroll-horizontal-target="favs" style="max-width: 60vh; overflow: scroll;"> %>
+      <% current_user.rooms_with_messages_in.each do |room| %>
+          <%= link_to room_path(room) do %>
+          <div id="mes-rooms-name"> <%= room.name %></div>
+          <% end %>
+      <% end %>
+    <%# </div> %>
+  </div>
+
   <div data-controller="form-option" style="margin-top: -8px;">
 
-    <div class="style-option-bouton">
-      <h4 data-action="click->form-option#revealList" class="style-option-bouton1"> liste </h4>
-      <h4 data-action="click->form-option#revealMap" class="style-option-bouton2"> carte </h4>
-      <h4 data-action="click->form-option#revealNew" class="style-option-bouton3"> nouveau </h4>
+    <div data-controller="toggle-style" class="style-option-bouton">
+      <h4 data-action="click->form-option#revealList" data-toggle-style-target="listToggle" data-action="click->toggle-style#styleToggle" class="style-option-bouton1"> liste </h4>
+      <h4 data-action="click->form-option#revealMap" data-toggle-style-target="mapToggle" data-action="click->toggle-style#styleToggle" class="style-option-bouton2"> carte </h4>
+      <h4 data-action="click->form-option#revealNew" data-toggle-style-target="newToggle" data-action="click->toggle-style#styleToggle" class="style-option-bouton3"> nouveau </h4>
     </div>
 
     <%# Affichage list (par défaut) %>
