@@ -64,6 +64,12 @@ a {
   padding-top: 8px;
 }
 
+.selected {
+  text-decoration: underline;
+  color:white;
+}
+
+
 h4 {
   background-color: black;
   color: white;
@@ -109,24 +115,20 @@ h4 {
 
 }
 
-@keyframes floating {
-  0% { transform: translate(0,  0px); }
-  50%  { transform: translate(0, 15px); }
-  100%   { transform: translate(0, -0px); }
-}
+// @keyframes floating {
+//   0% { transform: translate(0,  0px); }
+//   50%  { transform: translate(0, 15px); }
+//   100%   { transform: translate(0, -0px); }
+// }
 
 
 .room-fav{
+  display: flex;
   margin-right: 20px;
   margin-left: 20px;
   padding: 4px;
-  height:100vh;
-  animation-name: floating;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  margin-left: 30px;
-  margin-top: 5px;
+  max-width: 40vh;
+  overflow: scroll;
 }
 
 #new-style{

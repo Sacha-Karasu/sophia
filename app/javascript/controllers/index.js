@@ -31,5 +31,8 @@ application.register("scroll-custom", ScrollCustomController)
 // import ScrollHorizontalController from "./scroll_horizontal_controller"
 // application.register("scroll-horizontal", ScrollHorizontalController)
 
+import ToggleStyleController from "./toggle_style_controller"
+application.register("toggle-style", ToggleStyleController)
+
 import UserPositionController from "./user_position_controller"
 application.register("user-position", UserPositionController)
