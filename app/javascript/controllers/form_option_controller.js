@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="option-index"
 export default class extends Controller {
-  static targets = ["noend", "end", "list", "map", "new"]
+  static targets = ["noend", "end", "list", "map", "new", "listToggle", "mapToggle", "newToggle"]
 
   connect() {
     console.log("Connected to form-option controller")
@@ -14,6 +14,9 @@ export default class extends Controller {
     this.listTarget.classList.remove("d-none")
     this.mapTarget.classList.add("d-none")
     this.newTarget.classList.add("d-none")
+    this.listToggleTarget.classList.add("selected")
+    this.mapToggleTarget.classList.remove("selected")
+    this.newToggleTarget.classList.remove("selected")
 
   }
 
@@ -22,6 +25,9 @@ export default class extends Controller {
     this.mapTarget.classList.remove("d-none")
     this.listTarget.classList.add("d-none")
     this.newTarget.classList.add("d-none")
+    this.listToggleTarget.classList.remove("selected")
+    this.mapToggleTarget.classList.add("selected")
+    this.newToggleTarget.classList.remove("selected")
 
   }
 
@@ -30,6 +36,9 @@ export default class extends Controller {
     this.newTarget.classList.remove("d-none")
     this.mapTarget.classList.add("d-none")
     this.listTarget.classList.add("d-none")
+    this.listToggleTarget.classList.remove("selected")
+    this.mapToggleTarget.classList.remove("selected")
+    this.newToggleTarget.classList.add("selected")
 
   }
 
