@@ -18,7 +18,7 @@
 
 body {
   color: white;
-  background-color: black;
+  // background-color: black;
   font-family: 'Times New Roman', Times, serif;
   height: 100%;
 }
@@ -32,6 +32,10 @@ h1 {
   font-family: 'Bebas Neue', cursive;
   letter-spacing: .2rem;
   font-size: 32px;
+}
+
+#log-h{
+  margin: 100px 99px;
 }
 
 h2 {
@@ -95,4 +99,9 @@ h4 {
   margin: 10px 20px;
   margin-bottom: 60px;
 
+}
+
+.style-log{
+  color: blanc;
+  margin: 80px 40px;
 }
