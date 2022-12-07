@@ -1,10 +1,8 @@
 <div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
   <div class="main-grid">
     <div>
-      <% results = Geocoder.search([@room.latitude, @room.longitude]) %>
-      <% results2 = results.first.address %>
       <h1> <%= @room.name %> </h1>
-      <div class="distances" id="adress-in-room"><%= results2[0..60] %>...</div>
+      <div class="distances" id="adress-in-room"><%= @room.location[0..60] %>...</div>
       <%# <%= @room.latitude <%= @room.longitude %>
     </div>
 

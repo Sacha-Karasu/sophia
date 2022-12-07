@@ -96,7 +96,9 @@
             <%= simple_form_for ([@room]) do |f| %>
               <%= f.input :name %>
               <%= f.input :category %>
-              <%= f.input :location %>
+              <%= f.input :location,
+                  input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
+                  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
               <%= f.input :description, as: :text %>
               <%= f.input :start_date, as: :string, type: :text,
                   wrapper_html: { class: "mb-4" },
@@ -111,7 +113,9 @@
             <%= simple_form_for ([@room]) do |f| %>
               <%= f.input :name %>
               <%= f.input :category %>
-              <%= f.input :location %>
+              <%= f.input :location,
+                  input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
+                  wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
               <%= f.input :description, as: :text %>
               <%= f.input :start_date, as: :string, type: :text,
                   wrapper_html: { class: "mb-4" },
