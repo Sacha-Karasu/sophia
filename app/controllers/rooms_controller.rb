@@ -6,7 +6,6 @@ class RoomsController < ApplicationController
   end
 
   def create
-
     @room = Room.new(room_params)
     @room.user = current_user
     if @room.motion == true
@@ -40,20 +39,28 @@ class RoomsController < ApplicationController
       @rooms = Room.all
     end
     @room = Room.new
-    # The `geocoded` scope filters only rooms with coordinates
-    @markers = @rooms.geocoded.map do |room|
-      {
-        lat: room.latitude,
-        lng: room.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {room: room})
-      }
-    end
     # Rooms dans lesquelles user a au moins 1 message
     @rooms_with_messages_in = current_user.rooms
     # Rooms à moins de 1km
     @rooms_around_user = Room.near([current_user.latitude.to_f, current_user.longitude.to_f], 1, units: :km)
     # Rooms à moins de 5km
     @rooms_at_5_km = Room.near([current_user.latitude.to_f, current_user.longitude.to_f], 5, units: :km)
+    # The `geocoded` scope filters only rooms with coordinates => room at 1km
+    @markers_near = @rooms_around_user.map do |room|
+      {
+        lat: room.geocode[0],
+        lng: room.geocode[1],
+        info_window_near: render_to_string(partial: "info_window_near", locals: {room: room})
+      }
+    end
+    # The `geocoded` scope filters only rooms with coordinates => room at 5km
+    @markers_far = @rooms_at_5_km.map do |room|
+      {
+        lat: room.geocode[0],
+        lng: room.geocode[1],
+        info_window_far: render_to_string(partial: "info_window_far", locals: {room: room})
+      }
+    end
   end
 
   def fav
@@ -86,4 +93,5 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:name, :location, :category, :start_date, :end_date, :motion, :description, :password, :user_id)
   end
+
 end
