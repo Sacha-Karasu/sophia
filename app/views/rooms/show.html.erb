@@ -5,7 +5,7 @@
 <div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
   <div class="main-grid">
     <div>
-      <h1> <%= @room.name %> </h1>
+      <h1 class="h1-show-room"> <%= @room.name %> </h1>
       <div class="distances1" id="adress-in-room"><%= @room.location[0..60] %>...</div>
       <%# <%= @room.latitude <%= @room.longitude %>
     </div>
@@ -21,6 +21,7 @@
     </div>
   </div>
 
+  <div class="style-search-bar2">
     <%= form_with url: room_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
         params[:query],
@@ -29,7 +30,7 @@
       %>
       <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
     <% end %>
-
+  </div>
 
 
   <div data-controller="scroll-custom">
@@ -54,12 +55,16 @@
     <%= simple_form_for [@room, @message],
       html: { data: {action: "turbo:submit-end->room-subscription#resetForm"},
       class: "d-flex customform" } do |f|%>
-      <%= f.submit "↑", class: "btn btn-primary mb-3"%>
-      <%= f.input :content,
-                  label: false,
-                  placeholder: "Message ##{@room.name}",
-                  wrapper_html: {class: "flex-grow-1"}%>
-      <%= f.input :photo, label: false, as: :file, input_html: { class: "mycustominput"} %>
+      <div id="end-of-messages1">
+        <%= f.submit "↑", class: "btn btn-primary mb-3"%>
+        <%= f.input :content,
+                    label: false,
+                    placeholder: "Message ##{@room.name}",
+                    wrapper_html: {class: "flex-grow-1"}%>
+        <div id="style-photo">
+        <%= f.input :photo, label: false, as: :file, input_html: { class: "mycustominput"} %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

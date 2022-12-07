@@ -42,16 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_133730) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.bigint "room_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.index ["room_id"], name: "index_favorites_on_room_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.datetime "date"
     t.string "category"
@@ -100,8 +90,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_133730) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "favorites", "rooms"
-  add_foreign_key "favorites", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "rooms", "users"
