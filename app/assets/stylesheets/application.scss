@@ -125,3 +125,47 @@ h4 {
   font-style: italic;
   color: grey;
 }
+
+#adress-in-room {
+  margin-left: 0px;
+}
+
+// Checkbox room nomade
+
+.nomade-text {
+  color: white!important;
+}
+
+.form-check-input {
+  // TEST
+  position: absolute;
+  transform: scale(0);
+  // fin TEST
+  border-color: white!important;
+}
+
+.form-check-input + label {
+  cursor: pointer;
+  border: solid 1px white;
+  border-radius: 10px;
+  padding-inline: 14px;
+  padding-block: 2px;
+
+
+  // position: relative;
+  // bottom: 89px;
+  // left: 53px;
+}
+
+.form-check-input:checked + label {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+}
+
+.nomade-wrapper {
+  position: absolute;
+  top: 434px;
+  left: 60px;
+}
+>>>>>>> master

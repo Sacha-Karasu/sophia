@@ -6,9 +6,16 @@ class RoomsController < ApplicationController
   end
 
   def create
+
     @room = Room.new(room_params)
     @room.user = current_user
-    if @room.save
+    if @room.motion == true
+      results = Geocoder.search([current_user.latitude, current_user.longitude])
+      results2 = results.first.address
+      @room.location = results2
+      @room.save
+      redirect_to room_path(@room)
+    elsif @room.save
       redirect_to room_path(@room)
     else
       render :new, status: :unprocessable_entity
@@ -43,7 +50,9 @@ class RoomsController < ApplicationController
     end
     # Rooms dans lesquelles user a au moins 1 message
     @rooms_with_messages_in = current_user.rooms
+    # Rooms à moins de 1km
     @rooms_around_user = Room.near([current_user.latitude.to_f, current_user.longitude.to_f], 1, units: :km)
+    # Rooms à moins de 5km
     @rooms_at_5_km = Room.near([current_user.latitude.to_f, current_user.longitude.to_f], 5, units: :km)
   end
 

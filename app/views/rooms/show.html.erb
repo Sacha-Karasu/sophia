@@ -1,10 +1,12 @@
+<% content_for :meta_title, "#{@room.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @room.description %>
+<%# <% content_for :meta_image, cl_image_path(@room.photo.path) if @room.photo.present? %>
+
 <div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
   <div class="main-grid">
     <div>
-      <% results = Geocoder.search([@room.latitude, @room.longitude]) %>
-      <% results2 = results.first.address %>
-      <h1 class="h1-show-room"> <%= @room.name %> </h1>
-      <div class="distances1" id="adress-in-room"><%= results2[0..60] %>...</div>
+      <h1> <%= @room.name %> </h1>
+      <div class="distances1" id="adress-in-room"><%= @room.location[0..60] %>...</div>
       <%# <%= @room.latitude <%= @room.longitude %>
     </div>
 
@@ -51,12 +53,13 @@
   <div id="end-of-messages">
     <%= simple_form_for [@room, @message],
       html: { data: {action: "turbo:submit-end->room-subscription#resetForm"},
-      class: "d-flex" } do |f|%>
+      class: "d-flex customform" } do |f|%>
+      <%= f.submit "↑", class: "btn btn-primary mb-3"%>
       <%= f.input :content,
                   label: false,
                   placeholder: "Message ##{@room.name}",
                   wrapper_html: {class: "flex-grow-1"}%>
-      <%= f.submit "↑", class: "btn btn-primary mb-3"%>
+      <%= f.input :photo, label: false, as: :file, input_html: { class: "mycustominput"} %>
     <% end %>
   </div>
 </div>

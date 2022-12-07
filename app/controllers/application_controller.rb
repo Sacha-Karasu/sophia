@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def location
     current_user.update!(latitude: params["latitude"], longitude: params["longitude"])
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end
