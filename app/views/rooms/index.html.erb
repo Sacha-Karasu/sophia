@@ -113,6 +113,9 @@
             <h2 class="text-white">Créer une room éphémère</h2>
             <%= simple_form_for ([@room]) do |f| %>
               <%= f.input :name %>
+              <div class="nomade-wrapper">
+                <%= f.input :motion, as: :boolean, label: "Nomade", class: "nomade-text" %>
+              </div>
               <%= f.input :category %>
               <%= f.input :location %>
               <%= f.input :description, as: :text %>
