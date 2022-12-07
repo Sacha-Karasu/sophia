@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddressAutocompleteController from "./address_autocomplete_controller"
+application.register("address-autocomplete", AddressAutocompleteController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -28,9 +31,8 @@ application.register("room-subscription", RoomSubscriptionController)
 import ScrollCustomController from "./scroll_custom_controller"
 application.register("scroll-custom", ScrollCustomController)
 
-// import ScrollHorizontalController from "./scroll_horizontal_controller"
-// application.register("scroll-horizontal", ScrollHorizontalController)
-
+import ScrollHorizontalController from "./scroll_horizontal_controller"
+application.register("scroll-horizontal", ScrollHorizontalController)
 
 import UserPositionController from "./user_position_controller"
 application.register("user-position", UserPositionController)

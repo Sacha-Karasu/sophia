@@ -1,10 +1,12 @@
+<% content_for :meta_title, "#{@room.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @room.description %>
+<%# <% content_for :meta_image, cl_image_path(@room.photo.path) if @room.photo.present? %>
+
 <div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
   <div class="main-grid">
     <div>
-      <% results = Geocoder.search([@room.latitude, @room.longitude]) %>
-      <% results2 = results.first.address %>
       <h1> <%= @room.name %> </h1>
-      <div class="distances" id="adress-in-room"><%= results2[0..60] %>...</div>
+      <div class="distances" id="adress-in-room"><%= @room.location[0..60] %>...</div>
       <%# <%= @room.latitude <%= @room.longitude %>
     </div>
 
@@ -15,28 +17,18 @@
             <i class="fa-solid fa-trash"></i>
           <% end %>
         <% end %>
-      <br>
-        <div data-controller="location-nomade" data-location-nomade-room-value="<%= @room.id %>">
-          <% if current_user == @room.user && @room.motion %>
-            <i data-action="click->location-nomade#actualiseLocation" data-location-nomade-target="icon" class="fa-solid fa-location-crosshairs"></i>
-          <% else %>
-            <%= link_to room_path(@room) do %>
-              <i class="fa-solid fa-arrows-rotate"></i>
-            <% end %>
-          <% end %>
-        </div>
       </div>
     </div>
   </div>
 
-  <%= form_with url: room_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Chercher dans les messages"
-    %>
-    <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
-  <% end %>
+    <%= form_with url: room_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Chercher dans les messages"
+      %>
+      <%= button_tag(type: "submit", class: "btn btn-default") do  %> <i class="fa-solid fa-magnifying-glass"></i> <%end%>
+    <% end %>
 
 
 
