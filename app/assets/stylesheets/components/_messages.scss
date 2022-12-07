@@ -27,6 +27,8 @@
   font-size: smaller;
 }
 
+
+
 #end-of-messages{
   position: fixed;
   bottom: 50px;
@@ -36,4 +38,9 @@
 
 #messages{
   margin: 15px;
+}
+
+#trash-style{
+  color: grey;
+  font-size: 8px;
 }

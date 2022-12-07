@@ -3,8 +3,8 @@
     <div>
       <% results = Geocoder.search([@room.latitude, @room.longitude]) %>
       <% results2 = results.first.address %>
-      <h1> <%= @room.name %> </h1>
-      <div class="distances" id="adress-in-room"><%= results2[0..60] %>...</div>
+      <h1 class="h1-show-room"> <%= @room.name %> </h1>
+      <div class="distances1" id="adress-in-room"><%= results2[0..60] %>...</div>
       <%# <%= @room.latitude <%= @room.longitude %>
     </div>
 

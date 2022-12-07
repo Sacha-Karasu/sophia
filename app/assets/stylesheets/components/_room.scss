@@ -1,6 +1,5 @@
 
 .room-details {
-  border-radius: 10px;
   margin: 20px 36px;
   padding: 15px;
   background-image: linear-gradient(to right bottom, #1a2980b5, #26d0cd7d, #d9d9d900);
@@ -14,7 +13,7 @@
   width: max-content;
   padding: 10px 20px;
   margin: 10px;
-  background-image: linear-gradient(to right bottom, #cc2B5E, #753A88, #00000000);
+  background-image: linear-gradient(to right bottom, #1a2980b5, #26d0cd7d, #d9d9d900);
 
 }
 
@@ -27,9 +26,18 @@
   overflow: scroll;
 }
 
+.room-fav::-webkit-scrollbar {
+  display: none;
+}
+
 .room-details-inacess {
   border-radius: 10px;
   margin: 20px 36px;
   padding: 15px;
   background-image: linear-gradient(to right bottom, #3f3f41b5, #29403f7d, #14101000);
+}
+
+
+#adress-in-room {
+  margin-left: 0px;
 }

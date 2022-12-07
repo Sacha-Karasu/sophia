@@ -1,4 +1,38 @@
-#container-home {
+
+#container-home{
   height: 100vh;
+  animation-duration: 1.5s;
+  animation-name: glissement;
   background-image: linear-gradient(to right bottom, #1a2980b5, #26d0cd7d, #d9d9d900);
+}
+@keyframes glissement {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.style-logo{
+  font-size: 100px;
+  position: fixed;
+  bottom: 435px;
+  right: 150px;
+  text-shadow: 3px 3px 5px #6ccd27;
+  color: #e7ece3;
+}
+
+.style-text-home{
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: .2rem;
+  font-size: 32px;
+  position: fixed;
+  bottom: 318px;
+  right: 124px;
+  text-align: center;
+  text-shadow: 3px 3px 5px #6ccd27;
 }
