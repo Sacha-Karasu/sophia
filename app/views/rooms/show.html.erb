@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@room.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @room.description %>
+<%# <% content_for :meta_image, cl_image_path(@room.photo.path) if @room.photo.present? %>
+
 <div class="container" data-controller="room-subscription" data-room-subscription-room-id-value="<%= @room.id %>" data-room-subscription-current-user-id-value="<%= current_user.id %>">
   <div class="main-grid">
     <div>
