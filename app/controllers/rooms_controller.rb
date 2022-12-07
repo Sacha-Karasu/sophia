@@ -6,9 +6,10 @@ class RoomsController < ApplicationController
   end
 
   def create
+
     @room = Room.new(room_params)
     @room.user = current_user
-    if @room.location.downcase == "me"
+    if @room.motion == true
       results = Geocoder.search([current_user.latitude, current_user.longitude])
       results2 = results.first.address
       @room.location = results2
