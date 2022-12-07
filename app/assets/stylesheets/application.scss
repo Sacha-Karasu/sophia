@@ -34,8 +34,11 @@ h1 {
   font-size: 32px;
 }
 
-#log-h{
-  margin: 100px 99px;
+.h1-show-room{
+  text-shadow: 2px 2px 5px #6ccd27;
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: .2rem;
+  font-size: 32px;
 }
 
 h2 {
@@ -48,6 +51,10 @@ h2 {
 a {
   color: white;
   text-decoration: none;
+}
+
+a:hover {
+  color: white;
 }
 
 .main-grid{
@@ -102,18 +109,16 @@ h4 {
 
 }
 
-.style-log{
-  color: blanc;
-  margin: 80px 40px;
-}
-
-
-#trash-style{
-  color: grey;
-  font-size: 8px;
-}
-
 .distances {
+  margin-left: 16px;
+  font-family: Times New Roman;
+  font-size: 18px;
+  font-style: italic;
+  color: white;
+  text-shadow: 2px 2px 5px #6ccd27;
+}
+
+.distances1{
   margin-left: 16px;
   font-family: Times New Roman;
   font-size: 18px;
@@ -163,3 +168,4 @@ h4 {
   top: 434px;
   left: 60px;
 }
+>>>>>>> master

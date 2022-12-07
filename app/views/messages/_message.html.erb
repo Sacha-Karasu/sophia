@@ -5,5 +5,8 @@
     </div>
     <div class="style-message">
       <%= message.content %>
+      <% if message.photo.attached? %>
+      <%= cl_image_tag message.photo.key, height: 150, width: 200, crop: :fill %>
+      <% end %>
     </div>
 </div>

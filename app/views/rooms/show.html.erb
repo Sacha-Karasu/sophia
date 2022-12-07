@@ -6,7 +6,7 @@
   <div class="main-grid">
     <div>
       <h1> <%= @room.name %> </h1>
-      <div class="distances" id="adress-in-room"><%= @room.location[0..60] %>...</div>
+      <div class="distances1" id="adress-in-room"><%= @room.location[0..60] %>...</div>
       <%# <%= @room.latitude <%= @room.longitude %>
     </div>
 
@@ -53,12 +53,13 @@
   <div id="end-of-messages">
     <%= simple_form_for [@room, @message],
       html: { data: {action: "turbo:submit-end->room-subscription#resetForm"},
-      class: "d-flex" } do |f|%>
+      class: "d-flex customform" } do |f|%>
+      <%= f.submit "↑", class: "btn btn-primary mb-3"%>
       <%= f.input :content,
                   label: false,
                   placeholder: "Message ##{@room.name}",
                   wrapper_html: {class: "flex-grow-1"}%>
-      <%= f.submit "↑", class: "btn btn-primary mb-3"%>
+      <%= f.input :photo, label: false, as: :file, input_html: { class: "mycustominput"} %>
     <% end %>
   </div>
 </div>
