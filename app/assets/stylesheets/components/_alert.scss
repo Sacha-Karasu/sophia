@@ -1,6 +1,10 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 60px;
   z-index: 1000;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  background: transparent ;
+  background-image: linear-gradient(to right bottom, #1a2980b5, #26d0cd7d, #d9d9d900);
 }

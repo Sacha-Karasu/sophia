@@ -1,9 +1,8 @@
 <div class="navbar <%= yield(:navbar_class) %>">
   <div class="container-fluid">
-    <%= link_to root_path do %> <i class="fa-solid fa-house"></i> <% end %>
-    <i class="fa-solid fa-network-wired"></i>
+    <%= link_to root_path do %> <i class="fa-solid fa-bolt"></i><% end %>
     <%= link_to rooms_path do %> <i class="fa-solid fa-bars"></i> <% end %>
-    <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %> <i class="fa-solid fa-calendar"></i> <% end %>
-    <%= link_to user_session_path do %> <i class="fa-solid fa-gear"></i>  <% end %>
+    <%= link_to user_session_path do %> <i class="fa-solid fa-door-open"></i> <% end %>
+    <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %> <i class="fa-solid fa-power-off"></i> <% end %>
   </div>
 </div>
