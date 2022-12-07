@@ -124,3 +124,23 @@ h4 {
 #adress-in-room {
   margin-left: 0px;
 }
+
+// Checkbox room nomade
+.check-box-nomade {
+  position: absolute;
+  transform: scale(0);
+}
+
+.check-box-nomade + label {
+  cursor: pointer;
+  border: solid 1px white;
+  border-radius: 12px;
+  padding-inline: 16px;
+  padding-block: 6px;
+}
+
+.check-box-nomade:checked + label {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+}

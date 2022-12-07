@@ -97,6 +97,10 @@
               <%= f.input :name %>
               <%= f.input :category %>
               <%= f.input :location %>
+              <div>
+                <input class="check-box-nomade" type="checkbox" id="nomade">
+                <label for="nomade">Nomade</label>
+              </div>
               <%= f.input :description, as: :text %>
               <%= f.input :start_date, as: :string, type: :text,
                   wrapper_html: { class: "mb-4" },
