@@ -41,6 +41,12 @@ class RoomsController < ApplicationController
     @room = Room.new
     # Rooms dans lesquelles user a au moins 1 message
     @rooms_with_messages_in = current_user.rooms
+
+    markers
+  end
+
+  def markers
+    sleep(3)
     # Rooms à moins de 1km
     @rooms_around_user = Room.near([current_user.latitude.to_f, current_user.longitude.to_f], 1, units: :km)
     # Rooms à moins de 5km
