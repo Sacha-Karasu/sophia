@@ -22,17 +22,11 @@ application.register("location-nomade", LocationNomadeController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import RoomAutodestructionController from "./room_autodestruction_controller"
-application.register("room-autodestruction", RoomAutodestructionController)
-
 import RoomSubscriptionController from "./room_subscription_controller"
 application.register("room-subscription", RoomSubscriptionController)
 
 import ScrollCustomController from "./scroll_custom_controller"
 application.register("scroll-custom", ScrollCustomController)
-
-import ScrollHorizontalController from "./scroll_horizontal_controller"
-application.register("scroll-horizontal", ScrollHorizontalController)
 
 import UserPositionController from "./user_position_controller"
 application.register("user-position", UserPositionController)

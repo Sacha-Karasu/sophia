@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="option-index"
 export default class extends Controller {
-  static targets = ["noend", "end", "list", "map", "new", "listToggle", "mapToggle", "newToggle"]
+  static targets = ["noend", "end", "list", "map", "new", "listToggle", "mapToggle", "newToggle", "address", "address2"]
 
   connect() {
     console.log("Connected to form-option controller")
@@ -46,6 +46,14 @@ export default class extends Controller {
 
     this.noendTarget.classList.toggle("d-none")
     this.endTarget.classList.toggle("d-none")
+  }
+
+  displayAddress() {
+    this.addressTarget.classList.toggle("d-none")
+  }
+
+  displayAddress2() {
+    this.address2Target.classList.toggle("d-none")
   }
 
 }
