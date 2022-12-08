@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = "name ILIKE :query OR category ILIKE :query"
-      @rooms = Room.where(sql_query, query: "%#{params[:query]}%")
+      @rooms1 = Room.where(sql_query, query: "%#{params[:query]}%")
     else
       @rooms = Room.all
     end

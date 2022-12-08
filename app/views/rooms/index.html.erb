@@ -1,5 +1,6 @@
 <div data-controller="user-position">
-  <div class="style-search-bar">
+
+  <div class="style-search-bar2">
     <%= form_with url: rooms_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
@@ -37,7 +38,7 @@
     </div>
 
     <%# Affichage list rooms sans messages du user (par défaut) %>
-    <div data-form-option-target="list" >
+
       <div class="distances">A moins de 1 km</div>
       <% @rooms_around_user.each do |room|%>
         <% unless current_user.rooms_with_messages_in.include?(room) %>
