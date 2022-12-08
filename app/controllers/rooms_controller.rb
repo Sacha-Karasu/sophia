@@ -65,9 +65,6 @@ class RoomsController < ApplicationController
     end
   end
 
-  def fav
-  end
-
   def destroy
     @room = Room.find(params[:id])
     if @room.user == current_user
