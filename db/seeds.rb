@@ -38,32 +38,33 @@ end4 = DateTime.new(2022, 12, 9, 23, 30)
 start5 = DateTime.new(2022, 12, 10, 19, 00)
 end5 = DateTime.new(2022, 12, 10, 23, 30)
 
-babel = Room.new(name: "Babel", location: "21 rue Haxo, Marseille", start_date: start0, category: "Community", description: "C’est à Marseille, à deux pas du Vieux-Port, que la première résidence The Babel Community Marseille a vu le jour en Septembre 2017. Un lieu où l’on peut se loger, travailler, faire du sport, faire la fête, et surtout se rencontrer.", motion: false)
-babel.user = maewenn
-babel.save
+end6 = DateTime.new(2022, 12, 16, 23, 30)
 
-longchamps = Room.new(name: "Opéra", location: "2 rue molière, Marseille", start_date: start1, category: "Voisin", description: "Très apprécié des locaux, encore méconnu des touristes, le quartier de Longchamp entre les Réformés et les Chartreux a tout du quartier urbain qu’on aime : des boutiques, des musées, des bars et restaurants, des galeries, des festivals de musique, et un grand espace vert pour petits et grands.", motion: false)
-longchamps.user = claire
-longchamps.save
+# babel = Room.new(name: "Babel", location: "21 rue Haxo, Marseille", start_date: start0, category: "Community", description: "C’est à Marseille, à quelques mètres du Vieux-Port, que la première résidence The Babel Community Marseille a vu le jour en Septembre 2017. Un lieu où l’on peut se loger, travailler, faire du sport, faire la fête, et surtout se rencontrer.", motion: false)
+# babel.user = maewenn
+# babel.save
 
-cantoche = Room.new(name: "Cantoche", location: "13 rue haxo, Marseille", start_date: start2, end_date: end2, category: "Restaurant", description: "Pour la semaine des saveurs nous vous invitons à venir déguster tous les jours une spécialité française mise en valeur par notre cheffe.", motion: false)
+opera = Room.new(name: "Quartier Opéra", location: "2 rue molière, Marseille", start_date: start1, category: "Voisins", description: "Apprécié des touristes et peuplé par les locaux, le quartier Opéra à 2 pas du Vieux Port a tout du quartier urbain qu’on aime : des boutiques, des musées, des bars et restaurants, des galeries, des festivals de musique, et la mer toute proche.", motion: false)
+opera.user = claire
+opera.save
+
+cantoche = Room.new(name: "Cantoche", location: "13 rue haxo, Marseille", start_date: start2, end_date: end6, category: "Restaurant", description: "Pour la semaine des saveurs nous vous invitons à venir déguster tous les jours une spécialité française mise en valeur par notre cheffe.", motion: false)
 cantoche.user = julia
 cantoche.save
 
-fete = Room.new(name: "Marianne", location: "12 rue Venture, Marseille", start_date: start3, end_date: end3, category: "Anniversaire", description: "C'est mon anniversaire. On va faire la teuf dans l'appart de mes vieux. Toute la street est invitée! Ramenez à boire bande de rats!!!", motion: false)
-fete.user = marianne
-fete.save
+artplexe = Room.new(name: "Artplexe Canebière", location: "125 La Canebière, 13001 Marseille", start_date: start3, category: "Cinéma", description: "En plein cœur de Marseille, que vous découvrirez ARTPLEXE CANEBIÈRE, un complexe cinématographique et culturel d’un nouveau genre. Cinéma, expositions, concerts live, conférences, bar, restaurant rooftop sont au programme de ce nouveau lieu de vie pleinement inscrit dans son tissu urbain.", motion: false)
+artplexe.user = sacha
+artplexe.save
 
-manifestation = Room.new(name: "Gilets Jaunes", location: "", start_date: start4, end_date: end4, category:"Manifestation", description: "ZBEUL PARTOUT ON AURA LA TETE A MACRON!!", motion: true)
-manifestation.user = sacha
-manifestation.save
+silo = Room.new(name: "Le Silo xx Izia", location: "25 Boulevard Jacques Saadé Quai Du Lazaret, 13002 Marseille", start_date: start5, end_date: end5, category:"Concert", description: "Izïa signe son grand retour cette année avec son cinquième album attendu cet été, un retour tout aussi réjouissant pour son public que salvateur pour elle.", motion: false)
+silo.user = julia
+silo.save
 
 theatre = Room.new(name: "Hamlet", location: "88 rue d'Aubagne, Marseille", start_date: start5, end_date: end5, category: "Théâtre", description: "La Tragique histoire d'Hamlet, prince de Danemark, plus couramment désigné sous le titre abrégé Hamlet, est la plus longue et l'une des plus célèbres pièces de William Shakespeare. La date exacte de sa composition n'est pas connue avec précision ; la première représentation se situe sûrement entre 1598 et 1601", motion: false)
-theatre.user = sophia
+theatre.user = sacha
 theatre.save
 
-# [babel, longchamps].each do |attributes|
-#   room = Room.create!(attributes)
-#   puts "Created #{room.name}"
-# end
+velodrome = Room.new(name: "Orange vélodrome - Rugby France / Afrique du Sud", location: "3 Boulevard Michelet, 13008 Marseille, France", start_date: start5, end_date: end5, category: "Match", description: "Un véritable choc des titans pour ce match qui opposera la france à l'afrique du sud ce samedi. on se retrouve nombreux pour profiter de cette rencontre exceptionnelle en vue de la prochaine coupe du monde !", motion: false)
+velodrome.user = sacha
+velodrome.save
 puts "Finished!"
