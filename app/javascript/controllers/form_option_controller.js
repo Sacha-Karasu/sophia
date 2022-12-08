@@ -44,7 +44,6 @@ export default class extends Controller {
 
   displayForm() {
 
-    console.log("couc")
     this.noendTarget.classList.toggle("d-none")
     this.endTarget.classList.toggle("d-none")
   }
