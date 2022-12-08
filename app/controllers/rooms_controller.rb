@@ -53,12 +53,14 @@ class RoomsController < ApplicationController
         info_window_near: render_to_string(partial: "info_window_near", locals: {room: room})
       }
     end
-    # The `geocoded` scope filters only rooms with coordinates => room at 5km
-    @markers_far = @rooms_at_5_km.map do |room|
+    # The `geocoded` scope filters only rooms with coordinates => rooms at 5km
+    @rooms_far = @rooms_at_5_km - @rooms_around_user
+    @markers_far = @rooms_far.map do |room|
       {
         lat: room.geocode[0],
         lng: room.geocode[1],
-        info_window_far: render_to_string(partial: "info_window_far", locals: {room: room})
+        info_window_far: render_to_string(partial: "info_window_far", locals: {room: room}),
+        image_url: helpers.asset_url("custom-marker")
       }
     end
   end
