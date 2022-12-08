@@ -7,6 +7,7 @@ export default class extends Controller {
 
   connect() {
     console.log("Connected to form-option controller")
+    console.group(this.listTarget)
   }
 
   revealList() {
