@@ -10,14 +10,14 @@ form-control {
 .form-check-input {
   // TEST
   position: absolute;
-  transform: scale(0);
+  // transform: scale(0);
   // fin TEST
   border-color: white!important;
 }
 
 .form-check-input + label {
   cursor: pointer;
-  border: solid 1px white;
+  // border: solid 1px white;
   border-radius: 10px;
   padding-inline: 14px;
   padding-block: 2px;
