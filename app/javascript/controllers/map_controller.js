@@ -29,7 +29,7 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersNearValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_far)
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
       new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
