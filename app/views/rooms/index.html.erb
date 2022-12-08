@@ -106,11 +106,11 @@
             <h2 class="text-white">Créer une room permanente</h2>
             <%= simple_form_for ([@room]) do |f| %>
               <%= f.input :name %>
-              <%= f.input :motion, as: :boolean, label: "Nomade", wrapper_html: { class:"nomade-wrapper"}, input_html: {data: {action: "click->form-option#displayAddress"}} %>
               <%= f.input :category %>
               <%= f.input :location,
                   input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
                   wrapper_html: {data: {controller: "address-autocomplete", form_option_target:"address", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+              <%= f.input :motion, as: :boolean, label: "Nomade", wrapper_html: { class:"nomade-wrapper"}, input_html: {data: {action: "click->form-option#displayAddress"}} %>
               <%= f.input :description, as: :text %>
               <%= f.input :start_date, as: :string, type: :text,
                   wrapper_html: { class: "mb-4" },
@@ -124,11 +124,11 @@
             <h2 class="text-white">Créer une room éphémère</h2>
             <%= simple_form_for ([@room]) do |f| %>
               <%= f.input :name %>
-              <%= f.input :motion, as: :boolean, label: "Nomade", wrapper_html: { class:"nomade-wrapper"}, input_html: {data: {action: "click->form-option#displayAddress2"}, id:"room_motion_2", class: "nomade-text"}  %>
               <%= f.input :category %>
               <%= f.input :location,
                   input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
                   wrapper_html: {data: {controller: "address-autocomplete", form_option_target:"address2", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+              <%= f.input :motion, as: :boolean, label: "Nomade", wrapper_html: { class:"nomade-wrapper"}, input_html: {data: {action: "click->form-option#displayAddress2"}, id:"room_motion_2", class: "nomade-text"}  %>
               <%= f.input :description, as: :text %>
               <%= f.input :start_date, as: :string, type: :text,
                   wrapper_html: { class: "mb-4" },
