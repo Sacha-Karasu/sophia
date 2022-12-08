@@ -38,8 +38,8 @@
     </div>
 
     <%# Affichage list rooms sans messages du user (par défaut) %>
-
-      <div class="distances">A moins de 1 km</div>
+  <div data-form-option-target="list">
+    <div class="distances">A moins de 1 km</div>
       <% @rooms_around_user.each do |room|%>
         <% unless current_user.rooms_with_messages_in.include?(room) %>
           <%= link_to room_path(room) do %>
