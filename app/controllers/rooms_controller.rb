@@ -60,7 +60,7 @@ class RoomsController < ApplicationController
         lat: room.geocode[0],
         lng: room.geocode[1],
         info_window_far: render_to_string(partial: "info_window_far", locals: {room: room}),
-        image_url: helpers.asset_url("custom-marker")
+        image_url: helpers.asset_url("custom-marker.png")
       }
     end
   end
