@@ -1,9 +1,8 @@
 <div id= "mapboxgl-popup-content">
-  <h2><%= room.name %></h2>
+  <h2><%= room.name.capitalize %></h2>
   <br>
   <div><%= link_to "Entrer dans la room", room_path(room), class: "btn-blue"%></div>
   <br>
-  <br>
-  <p><%= room.description %></p>
   <p><%= room.location %></p>
+  <p><%= room.description.capitalize %></p>
 </div>

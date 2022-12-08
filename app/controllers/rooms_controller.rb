@@ -50,7 +50,7 @@ class RoomsController < ApplicationController
       {
         lat: room.geocode[0],
         lng: room.geocode[1],
-        info_window_near: render_to_string(partial: "info_window_near", locals: {room: room})
+        info_window: render_to_string(partial: "info_window", locals: {room: room})
       }
     end
     # The `geocoded` scope filters only rooms with coordinates => rooms at 5km
