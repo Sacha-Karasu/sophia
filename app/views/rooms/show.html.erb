@@ -62,7 +62,7 @@
                     placeholder: "Message ##{@room.name}",
                     wrapper_html: {class: "flex-grow-1"}%>
         <div id="style-photo">
-        <%= f.input :photo, label: false, as: :file, input_html: { class: "mycustominput"} %>
+        <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷' %>
         </div>
       </div>
     <% end %>
