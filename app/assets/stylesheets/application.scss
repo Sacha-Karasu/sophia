@@ -69,24 +69,6 @@ a:hover {
   align-items: flex-end;
 }
 
-// à mettre dans des partiales
-
-.style-search-bar {
-  margin: 20px 36px;
-}
-
-.style-search-bar2{
-  margin: 15px 20px;
-}
-
-.style-option-bouton {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  // pour décoller ce menu des rooms favs
-  padding-top: 8px;
-}
-
 .selected {
   // text-decoration: underline;
   // color:white;
@@ -99,13 +81,6 @@ h4 {
   font-family:'Times New Roman', Times, serif;
 }
 
-
-.index-title {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 20px;
-  letter-spacing: 1px;
-  color: white;
-}
 
 #new-style{
   margin: 10px 20px;
@@ -132,44 +107,4 @@ h4 {
 
 #adress-in-room {
   margin-left: 0px;
-}
-
-// Checkbox room nomade
-
-.nomade-text {
-  color: white!important;
-}
-
-.form-check-input {
-  // TEST
-  position: absolute;
-  transform: scale(0);
-  // fin TEST
-  border-color: white!important;
-}
-
-.form-check-input + label {
-  cursor: pointer;
-  border: solid 1px white;
-  border-radius: 10px;
-  padding-inline: 14px;
-  padding-block: 2px;
-
-
-  // position: relative;
-  // bottom: 89px;
-  // left: 53px;
-}
-
-.form-check-input:checked + label {
-  color: black;
-  background-color: white;
-  border: solid 1px black;
-}
-
-.nomade-wrapper {
-  position: absolute;
-  top: 287px;
-  left: 230px;
-  z-index: 10;
 }

@@ -1,0 +1,35 @@
+form-control {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 95%;
+  margin: 0px 15px;
+  color: white;
+}
+
+.form-check-input {
+  // TEST
+  position: absolute;
+  transform: scale(0);
+  // fin TEST
+  border-color: white!important;
+}
+
+.form-check-input + label {
+  cursor: pointer;
+  border: solid 1px white;
+  border-radius: 10px;
+  padding-inline: 14px;
+  padding-block: 2px;
+
+
+  // position: relative;
+  // bottom: 89px;
+  // left: 53px;
+}
+
+.form-check-input:checked + label {
+  color: black;
+  background-color: white;
+  border: solid 1px black;
+}
