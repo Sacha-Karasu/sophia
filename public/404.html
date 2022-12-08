@@ -3,265 +3,38 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
   <style>
-
-@import url(https://fonts.googleapis.com/css?family=Gilda+Display);
-
-html {
-  background-color:black;
+    body{
   color: white;
-  overflow: hidden;
-  height: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-		  font-size: medium;
-}
-
-.error {
+  text-shadow: 7px 7px 7px #000000;
+  font-size: 50px;
+  animation-duration: 1.5s;
+  animation-name: glissement;
   text-align: center;
-  font-family: 'Gilda Display', serif;
+background-image: url("https://images.unsplash.com/photo-1610337673044-720471f83677?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80");
+}
+@keyframes glissement {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
 
-  text-align: center;
-  width: 100%;
-  height: 120px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -60px;
-  right: 0;
-  -webkit-animation: noise-3 1s linear infinite;
-          animation: noise-3 1s linear infinite;
-  overflow: default;
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
-body:after {
-  content: 'error 404';
-  font-family: OCR-A;
-  font-size: 100px;
-
-  text-align: center;
-  width: 550px;
-  margin: auto;
-  position: absolute;
-  top: 25%;
-  bottom: 0;
-  left: 0;
-  right: 35%;
-  opacity: 0;
-  color: white;
-  -webkit-animation: noise-1 .2s linear infinite;
-          animation: noise-1 .2s linear infinite;
-}
-body:before {
-  content: 'error 404';
-  font-family: OCR-A;
-  font-size: 100px;
-
-  text-align: center;
-  width: 550px;
-  margin: auto;
-  position: absolute;
-  top: 25%;
-  bottom: 0;
-  left: 0;
-  right: 35%;
-  opacity: 0;
-  color: white;
-  -webkit-animation: noise-2 .2s linear infinite;
-          animation: noise-2 .2s linear infinite;
-}
-
-.info {
-  text-align: center;
-  width: 200px;
-  height: 60px;
-  margin: auto;
-  position: absolute;
-  top: 280px;
-  bottom: 0;
-  left: 20px;
-  right: 0;
-  -webkit-animation: noise-3 1s linear infinite;
-          animation: noise-3 1s linear infinite;
-}
-
-.info:before {
-  content: 'file not found';
-  font-family: OCR-A;
-  font-size: 100px;
-  text-align: center;
-  width: 800px;
-  margin: auto;
-  position: absolute;
-  top: 20px;
-  bottom: 0;
-  left: 40px;
-  right: 100px;
-  opacity: 0;
-  color: white;
-  -webkit-animation: noise-2 .2s linear infinite;
-          animation: noise-2 .2s linear infinite;
-}
-
-.info:after {
-  content: 'file not found';
-  font-family: OCR-A;
-  font-size: 100px;
-  text-align: center;
-  width: 800px;
-  margin: auto;
-  position: absolute;
-  top: 20px;
-  bottom: 0;
-  left: 40px;
-  right: 0;
-  opacity: 0;
-  color: white;
-  -webkit-animation: noise-1 .2s linear infinite;
-          animation: noise-1 .2s linear infinite;
-}
-
-@-webkit-keyframes noise-1 {
-  0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}
-  10% {opacity: .1;}
-  50% {opacity: .5; left: -6px;}
-  80% {opacity: .3;}
-  100% {opacity: .6; left: 2px;}
-}
-
-@keyframes noise-1 {
-  0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}
-  10% {opacity: .1;}
-  50% {opacity: .5; left: -6px;}
-  80% {opacity: .3;}
-  100% {opacity: .6; left: 2px;}
-}
-
-@-webkit-keyframes noise-2 {
-  0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}
-  10% {opacity: .1;}
-  50% {opacity: .5; left: 6px;}
-  80% {opacity: .3;}
-  100% {opacity: .6; left: -2px;}
-}
-
-@keyframes noise-2 {
-  0%, 20%, 40%, 60%, 70%, 90% {opacity: 0;}
-  10% {opacity: .1;}
-  50% {opacity: .5; left: 6px;}
-  80% {opacity: .3;}
-  100% {opacity: .6; left: -2px;}
-}
-
-@-webkit-keyframes noise {
-  0%, 3%, 5%, 42%, 44%, 100% {opacity: 1; -webkit-transform: scaleY(1); transform: scaleY(1);}
-  4.3% {opacity: 1; -webkit-transform: scaleY(1.7); transform: scaleY(1.7);}
-  43% {opacity: 1; -webkit-transform: scaleX(1.5); transform: scaleX(1.5);}
-}
-
-@keyframes noise {
-  0%, 3%, 5%, 42%, 44%, 100% {opacity: 1; -webkit-transform: scaleY(1); transform: scaleY(1);}
-  4.3% {opacity: 1; -webkit-transform: scaleY(1.7); transform: scaleY(1.7);}
-  43% {opacity: 1; -webkit-transform: scaleX(1.5); transform: scaleX(1.5);}
-}
-
-@-webkit-keyframes noise-3 {
-  0%,3%,5%,42%,44%,100% {opacity: 1; -webkit-transform: scaleY(1); transform: scaleY(1);}
-  4.3% {opacity: 1; -webkit-transform: scaleY(4); transform: scaleY(4);}
-  43% {opacity: 1; -webkit-transform: scaleX(10) rotate(60deg); transform: scaleX(10) rotate(60deg);}
-}
-
-@keyframes noise-3 {
-  0%,3%,5%,42%,44%,100% {opacity: 1; -webkit-transform: scaleY(1); transform: scaleY(1);}
-  4.3% {opacity: 1; -webkit-transform: scaleY(4); transform: scaleY(4);}
-  43% {opacity: 1; -webkit-transform: scaleX(10) rotate(60deg); transform: scaleX(10) rotate(60deg);}
-}
-
-.wrap {
-  top: 30%;
-  left: 25%;
-
-  height: 200px;
-
-  margin-top: -100px;
-  position: absolute;
-}
-code {
-  color: white;
-}
-span.blue {
-  color: #48beef;
-}
-span.comment {
-  color: #7f8c8d;
-}
-span.orange {
-  color: #f39c12;
-}
-span.green {
-  color: #33cc33;
-}
-
-.viewFull {
-  font-family:OCR-A;
-  color:orange;
-}
-
- @media only screen and (min-height: 500px) {
-
-.viewFull{
-  display:none;
-	}
-
-}
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-
-  <a href="https://codepen.io/ZonFire99/full/njdls/" class="viewFull" target="_parent">View in full it looks way better :)</a>
-
-  <div class="error">
-
-  <div class="wrap">
-    <div class="404">
-      <pre><code>
-     <span class="green">&lt;!</span><span>DOCTYPE html</span><span class="green">&gt;</span>
-  <span class="orange">&lt;html&gt;</span>
-      <span class="orange">&lt;style&gt;</span>
-     * {
-              <span class="green">everything</span>:<span class="blue">awesome</span>;
-  }
-       <span class="orange">&lt;/style&gt;</span>
-   <span class="orange">&lt;body&gt;</span>
-                ERROR 404!
-          FILE NOT FOUND!
-          <span class="comment">&lt;!--The file you are looking for,
-            is not where you think it is.--&gt;
-      </span>
-   <span class="orange"></span>
-
-
-
-  </div>
-  <br />
-  <span class="info">
-  <br />
-
-  <span class="orange">&nbsp;&lt;/body&gt;</span>
-
-  <br/>
-        <span class="orange">&lt;/html&gt;</span>
-      </code></pre>
-    </div>
-  </div>
-
-
-  </span>
+  <h1>ERROR 404</h1>
+  <h2>Le site pourrait être parfait mais nous manquons de moyens!</h2>
+  <h2>N'hésitez pas à être généreuxses sur les dons </h2>
+  <h3> vous pouvez faire un versement lydia à ce numero <strong>06 99 49 13 98</strong> </h3>
 
 </body>
 </html>

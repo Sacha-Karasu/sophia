@@ -3,154 +3,36 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
   <style>
-body {
-  font-family: 'Roboto', sans-serif;
+body{
+  color: white;
+  text-shadow: 7px 7px 7px #000000;
+  font-size: 50px;
+  animation-duration: 1.5s;
+  animation-name: glissement;
+  text-align: center;
+background-image: url("https://images.unsplash.com/photo-1610337673044-720471f83677?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=772&q=80");
 }
-.tv-error-404-tm {
-  background-color:#000;
-  max-height:100%;
-  min-height:100%;
-  position:relative;
-  padding:50px 0;
-}
-.tv-dark-background-tm {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.6);
-  top:0;
-  left:0;
-}
-.tv-error-content-tm {
-  position:relative;
-  top:100px;
-  color:#fff;
-}
-.tv-error-content-tm h1 {
-  font-size:102px;
-  text-align:center;
-  font-weight:400;
-}
-.tv-error-content-tm h3 {
-  font-size:32px;
-  font-weight:300;
-  text-align:center;
-}
-.tv-error-links-tm {
-  width:100%;
-  margin-top:20%;
-  text-align:center;
-}
-.tv-error-content-tm a {
-  color:#fff !important;
-  padding:5px 30px;
-  border:2px solid #fff;
-  font-size:22px;
-  margin-right:30px;
-  border-radius:5px;
-}
-.tv-error-content-tm a:hover,.tv-error-content-tm a:active,.tv-error-content-tm a:visited,.tv-error-content-tm a:focus {
-  color:#fff !important;
+@keyframes glissement {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
 
-}
-@media (max-width: 992px)  {
-    .tv-error-content-tm h1 {
-      font-size:62px;
-      text-align:center;
-      font-weight:400;
-    }
-    .tv-error-content-tm h3 {
-      font-size:26px;
-      font-weight:300;
-      text-align:center;
-    }
-    .tv-error-content-tm a {
-      color:#fff !important;
-      padding:5px 30px;
-      border:2px solid #fff;
-      font-size:22px;
-      margin-right:30px;
-      border-radius:5px;
-    }
-}
-@media (max-width: 425px)  {
-    .tv-error-content-tm h1 {
-        font-size: 49px;
-        text-align: center;
-        font-weight: 400;
-    }
-    .tv-error-content-tm h3 {
-      font-size:26px;
-      font-weight:300;
-      text-align:center;
-    }
-    .tv-error-content-tm a {
-        color: #fff !important;
-        padding: 5px 30px;
-        border: 2px solid #fff;
-        font-size: 19px;
-        margin-right: 10px;
-        border-radius: 5px;
-    }
-}
-@media (max-width: 375px)  {
-   .tv-error-content-tm h1 {
-        font-size: 42px;
-        text-align: center;
-        font-weight: 400;
-    }
-    .tv-error-content-tm h3 {
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
-    .tv-error-content-tm a {
-        color: #fff !important;
-        padding: 5px 30px;
-        border: 2px solid #fff;
-        font-size: 18px;
-        margin-right: 0;
-        border-radius: 5px;
-    }
-}
-@media (max-width: 320px)  {
-    .tv-error-content-tm h1 {
-      font-size:34px;
-      text-align:center;
-      font-weight:400;
-    }
-    .tv-error-content-tm h3 {
-      font-size:18px;
-      font-weight:300;
-      text-align:center;
-    }
-    .tv-error-content-tm a {
-        color: #fff !important;
-        padding: 5px 30px;
-        border: 2px solid #fff;
-        font-size: 18px;
-        margin-right: 0;
-        border-radius: 5px;
-    }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <section class="tv-error-404-tm" style="background-image: url(http://movietvtechgeeks.com/wp-content/uploads/2015/05/most-common-server-problems.jpg); background-position:top center; background-size:cover; height:800px;">
-    <div class="tv-dark-background-tm"></div>
-    <div class="container tv-error-content-tm">
-      <div class="col-md-12">
-        <h1>Unexpected Error</h1>
-        <h3>An error occurred and your request couldn’t be completed. Please try again.</h3>
-        <div class="tv-error-links-tm">
-          <a href="#" class="btn">Home Page</a>
-
-        </div>
-      </div>
-    </div>
-  </section>
+  <h1>ERROR 5OO</h1>
+  <h2>Le site pourrait être parfait mais nous manquons de moyens!</h2>
+  <h2>N'hésitez pas à être généreuxses sur les dons</h2>
+  <h3> vous pouvez faire un versement lydia à ce numero <strong>06 99 49 13 98</strong> </h3>
 </body>
 </html>
