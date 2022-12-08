@@ -19,6 +19,8 @@ export default class extends Controller {
 
     this.#addMarkersToMap()
 
+    this.#addMarkersFarToMap()
+
     this.#fitMapToMarkers()
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
@@ -26,10 +28,8 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
-    console.log(this.markersFarValue);
-
     this.markersNearValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_near)
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_far)
 
       new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
@@ -37,15 +37,23 @@ export default class extends Controller {
       .addTo(this.map)
     });
 
+  }
+
+  #addMarkersFarToMap() {
     this.markersFarValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_far)
 
       // Create a HTML element for your custom marker
-      // const customMarker = document.createElement("div")
-      // customMarker.className = "marker"
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker-far"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "cover"
+      customMarker.style.width = "25px"
+      // régler en rem pour mobile
+      customMarker.style.height = "40px"
       // customMarker.style.color = "#747b7d"
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
