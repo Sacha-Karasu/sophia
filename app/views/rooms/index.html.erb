@@ -106,9 +106,7 @@
             <h2 class="text-white">Créer une room permanente</h2>
             <%= simple_form_for ([@room]) do |f| %>
               <%= f.input :name %>
-              <div class="nomade-wrapper">
-                <%= f.input :motion, as: :boolean, label: "Nomade", input_html: {data: {action: "click->form-option#displayAddress"}} %>
-              </div>
+              <%= f.input :motion, as: :boolean, label: "Nomade", wrapper_html: { class:"nomade-wrapper"}, input_html: {data: {action: "click->form-option#displayAddress"}} %>
               <%= f.input :category %>
               <%= f.input :location,
                   input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"},
