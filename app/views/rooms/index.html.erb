@@ -43,8 +43,13 @@
         <% unless current_user.rooms_with_messages_in.include?(room) %>
           <%= link_to room_path(room) do %>
             <div class="room-details">
-                <div class="index-title"><%= room.name %> - <%= room.category %></div>
-                <div><%= room.location %></div>
+                <div class="index-title">
+                <%= room.name %> - <%= room.category %>
+                <% if room.motion %>
+                  <i class="fa-solid fa-person-walking"></i>
+                <% end %>
+                </div>
+                <div><%= room.location[0..50] %>...</div>
                 <div>
                   <% if room.end_date %>
                     <%= room.end_date.strftime('%d/%m/%Y') %>
@@ -62,7 +67,11 @@
           <% unless @rooms_around_user.include?(room) %>
             <%# && current_user.rooms_with_messages_in.include?(room) %>
             <%# code executed only when condition is not "truthy" %>
-            <div class="room-details-inacess index-title"><%= room.name %></div>
+            <div class="room-details-inacess index-title"><%= room.name %>
+              <% if room.user = current_user %>
+                <%= link_to room_path(room) do %> <i class="fa-solid fa-gear"></i><% end %>
+              <% end %>
+            </div>
           <% end %>
         <% end %>
         <div class="distances">
