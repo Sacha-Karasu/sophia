@@ -34,7 +34,7 @@
 
 
   <div data-controller="scroll-custom">
-    <div id="messages" data-room-subscription-target="messages" style="max-height: 65vh;
+    <div id="messages" data-room-subscription-target="messages" style="max-height: 50vh;
     overflow: scroll;" data-scroll-custom-target="messages">
       <% @messages.each do |message| %>
         <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
