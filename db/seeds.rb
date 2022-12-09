@@ -48,14 +48,6 @@ opera = Room.new(name: "Quartier Opéra", location: "2 rue molière, Marseille",
 opera.user = claire
 opera.save
 
-cantoche = Room.new(name: "Cantoche", location: "13 rue haxo, Marseille", start_date: start2, end_date: end6, category: "Restaurant", description: "Pour la semaine des saveurs nous vous invitons à venir déguster tous les jours une spécialité française mise en valeur par notre cheffe.", motion: false)
-cantoche.user = julia
-cantoche.save
-
-artplexe = Room.new(name: "Artplexe Canebière", location: "125 La Canebière, 13001 Marseille", start_date: start3, category: "Cinéma", description: "En plein cœur de Marseille, que vous découvrirez ARTPLEXE CANEBIÈRE, un complexe cinématographique et culturel d’un nouveau genre. Cinéma, expositions, concerts live, conférences, bar, restaurant rooftop sont au programme de ce nouveau lieu de vie pleinement inscrit dans son tissu urbain.", motion: false)
-artplexe.user = sacha
-artplexe.save
-
 silo = Room.new(name: "Le Silo xx Izia", location: "25 Boulevard Jacques Saadé Quai Du Lazaret, 13002 Marseille", start_date: start5, end_date: end5, category:"Concert", description: "Izïa signe son grand retour cette année avec son cinquième album attendu cet été, un retour tout aussi réjouissant pour son public que salvateur pour elle.", motion: false)
 silo.user = julia
 silo.save
