@@ -20,6 +20,7 @@ marianne = User.create!(email: "marianne@gmail.com", password: "mariannemarianne
 sophia = User.create!(email: "sophia@gmail.com", password: "sophiasophia", nickname: "Sophia", category: "pro")
 bahar = User.create!(email: "bahar@gmail.com", password: "baharbahar", nickname: "Bahar", category: "non-pro")
 maewenn = User.create!(email: "maewenn@gmail.com", password: "maewennmaewenn", nickname: "Maewenn", category: "pro")
+ciel = User.create!(email: "ciel@gmail.com", password: "cielciel", nickname: "cielrooftop", category: "pro")
 
 puts "Creating rooms..."
 
@@ -40,10 +41,6 @@ end5 = DateTime.new(2022, 12, 10, 23, 30)
 
 end6 = DateTime.new(2022, 12, 16, 23, 30)
 
-# babel = Room.new(name: "Babel", location: "21 rue Haxo, Marseille", start_date: start0, category: "Community", description: "C’est à Marseille, à quelques mètres du Vieux-Port, que la première résidence The Babel Community Marseille a vu le jour en Septembre 2017. Un lieu où l’on peut se loger, travailler, faire du sport, faire la fête, et surtout se rencontrer.", motion: false)
-# babel.user = maewenn
-# babel.save
-
 opera = Room.new(name: "Quartier Opéra", location: "2 rue molière, Marseille", start_date: start1, category: "Voisins", description: "Apprécié des touristes et peuplé par les locaux, le quartier Opéra à 2 pas du Vieux Port a tout du quartier urbain qu’on aime : des boutiques, des musées, des bars et restaurants, des galeries, des festivals de musique, et la mer toute proche.", motion: false)
 opera.user = claire
 opera.save
@@ -59,4 +56,9 @@ theatre.save
 velodrome = Room.new(name: "Orange vélodrome - Rugby France / Afrique du Sud", location: "3 Boulevard Michelet, 13008 Marseille, France", start_date: start5, end_date: end5, category: "Match", description: "Un véritable choc des titans pour ce match qui opposera la france à l'afrique du sud ce samedi. on se retrouve nombreux pour profiter de cette rencontre exceptionnelle en vue de la prochaine coupe du monde !", motion: false)
 velodrome.user = sacha
 velodrome.save
+
+demo = Room.new(name: "Demo Day Le Wagon Marseille", location: "21 rue Haxo, 13001 Marseille, France", start_date: start4, end_date: end5, category: "Evènementt pro", description: "L'aboutissement de 9 semaines de travail acharné c'est maintenant ! Découvrons tous les projets web et data de cette session d'Automne.", motion: false)
+demo.user = ciel
+demo.save
+
 puts "Finished!"
