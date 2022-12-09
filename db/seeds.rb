@@ -57,7 +57,7 @@ velodrome = Room.new(name: "Orange vélodrome - Rugby France / Afrique du Sud", 
 velodrome.user = sacha
 velodrome.save
 
-demo = Room.new(name: "Demo Day Le Wagon Marseille", location: "21 rue Haxo, 13001 Marseille, France", start_date: start4, end_date: end5, category: "Evènementt pro", description: "L'aboutissement de 9 semaines de travail acharné c'est maintenant ! Découvrons tous les projets web et data de cette session d'Automne.", motion: false)
+demo = Room.new(name: "Demo Day Le Wagon Marseille", location: "21 rue Haxo, 13001 Marseille, France", start_date: start4, end_date: end5, category: "Evènement pro", description: "L'aboutissement de 9 semaines de travail acharné c'est maintenant ! Découvrons tous les projets web et data de cette session d'Automne.", motion: false)
 demo.user = ciel
 demo.save
 
